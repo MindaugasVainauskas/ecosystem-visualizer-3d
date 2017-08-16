@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcosysVisualizer3D.CSharp.Plugins", "EcosysVisualizer3D.CSharp.Plugins.csproj", "{1A59E8F0-55E9-D304-D2EF-F5AE018BFC4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcosysVisualizer3D.CSharp", "EcosysVisualizer3D.CSharp.csproj", "{75E42D84-8A74-43F8-E922-EF8F36E6BF58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A59E8F0-55E9-D304-D2EF-F5AE018BFC4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A59E8F0-55E9-D304-D2EF-F5AE018BFC4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A59E8F0-55E9-D304-D2EF-F5AE018BFC4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A59E8F0-55E9-D304-D2EF-F5AE018BFC4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75E42D84-8A74-43F8-E922-EF8F36E6BF58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75E42D84-8A74-43F8-E922-EF8F36E6BF58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75E42D84-8A74-43F8-E922-EF8F36E6BF58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75E42D84-8A74-43F8-E922-EF8F36E6BF58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
