@@ -22,10 +22,10 @@ public class GraphLoader : MonoBehaviour {
 		
 	}
 
+    public Transform sphere;
     //method to load the graph from json file
     public void LoadGraph(string path) {
         string loadGraph = JSONReader.LoadJSon(path);
-        Cell gCells;        
         JSONNode node = JSON.Parse(loadGraph);
 
         //JSONNode cell = node["graph"];
@@ -39,5 +39,20 @@ public class GraphLoader : MonoBehaviour {
         //}
         ecosystem = JsonUtility.FromJson<Graph>(loadGraph);
         Debug.Log(array);
+       
+        var elements = ecosystem.graphElements;
+
+        for (int i = 0; i < elements.Length; i++)
+        {
+            string elShape = elements[i].shape;
+            if (elShape.Equals("Circle"))
+            {
+                instantiateSphere(i);
+            }
+        }
+    }
+
+    void instantiateSphere(int x) {
+        Instantiate(sphere, new Vector3(x+1, 1, 1), Quaternion.identity);
     }
 }
