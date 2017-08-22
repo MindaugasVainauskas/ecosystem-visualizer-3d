@@ -9,7 +9,8 @@ public class GraphLoader : MonoBehaviour {
     public Graph ecosystem;    
     //gets called before start. Called once per object lifetime
     void Awake() {
-        LoadGraph("Simple.json");
+        //LoadGraph("Simple.json");
+        LoadGraph("MoreComplex.json");
     }
 
 	// Use this for initialization
@@ -23,6 +24,9 @@ public class GraphLoader : MonoBehaviour {
 	}
 
     public Transform sphere;
+    public Transform cube;
+    public Transform diamond;
+    public Transform hex3d;
     //method to load the graph from json file
     public void LoadGraph(string path) {
         string loadGraph = JSONReader.LoadJSon(path);
@@ -45,14 +49,39 @@ public class GraphLoader : MonoBehaviour {
         for (int i = 0; i < elements.Length; i++)
         {
             string elShape = elements[i].shape;
-            if (elShape.Equals("Circle"))
+            switch (elShape)
             {
-                instantiateSphere(i);
+                case "Circle":
+                    instantiateSphere(i);
+                    break;
+                case "Square":
+                    instantiateCube(i);
+                    break;
+                case "Diamond":
+                    instantiateDiamond(i);
+                    break;
+                case "Hex":
+                    instantiateHex(i);
+                    break;
+                default:
+                    break;
             }
+            
         }
     }
 
     void instantiateSphere(int x) {
-        Instantiate(sphere, new Vector3(x+1, 1, 1), Quaternion.identity);
+        Instantiate(sphere, new Vector3(0, 1, x), Quaternion.identity);
+    }
+    void instantiateCube(int x) {
+        Instantiate(cube, new Vector3(0, 1, x), Quaternion.identity);
+    }
+    void instantiateDiamond(int x)
+    {
+        Instantiate(diamond, new Vector3(0, 1, x), Quaternion.identity);
+    }
+    void instantiateHex(int x)
+    {
+        Instantiate(hex3d, new Vector3(0, 1, x), Quaternion.identity);
     }
 }
