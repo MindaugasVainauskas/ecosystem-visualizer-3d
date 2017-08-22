@@ -74,14 +74,14 @@ public class GraphLoader : MonoBehaviour {
         Instantiate(sphere, new Vector3(0, 1, x), Quaternion.identity);
     }
     void instantiateCube(int x) {
-        Instantiate(cube, new Vector3(0, 1, x), Quaternion.identity);
+        Instantiate(cube, new Vector3(0, 1, x+1), Quaternion.identity);
     }
     void instantiateDiamond(int x)
     {
-        Instantiate(diamond, new Vector3(0, 1, x), Quaternion.identity);
+        Instantiate(diamond, new Vector3(0, 1, x+2), Quaternion.identity);
     }
     void instantiateHex(int x)
     {
-        Instantiate(hex3d, new Vector3(0, 1, x), Quaternion.identity);
+        Instantiate(hex3d, new Vector3(0, 1, x+3), Quaternion.identity);
     }
 }
