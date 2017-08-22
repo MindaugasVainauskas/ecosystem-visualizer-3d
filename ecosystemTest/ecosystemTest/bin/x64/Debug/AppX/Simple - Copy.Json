@@ -1,0 +1,140 @@
+﻿{
+  "graph": {
+    "cells": [
+      {
+        "type": "basic.InteractiveCircle",
+        "size": {
+          "width": 80,
+          "height": 80
+        },
+        "position": {
+          "x": 448,
+          "y": 235
+        },
+        "angle": 0,
+        "celltype": "actor",
+        "asset": "office01",
+        "id": "7b4f7972-551a-4168-98cc-bf0be6ae8437",
+        "elemID": "32de872f-54ca-4653-85f1-ab0ece5f0a9f",
+        "z": 2,
+        "attrs": {
+          ".outer": {
+            "fill": "#ff473a",
+            "magnet": true
+          },
+          ".inner": {
+            "fill": "#ff473a"
+          },
+          "text": {
+            "text": "Element 1",
+            "fill": "white"
+          }
+        }
+      },
+      {
+        "type": "link",
+        "source": {
+          "id": "7b4f7972-551a-4168-98cc-bf0be6ae8437",
+          "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)",
+          "port": null
+        },
+        "target": {
+          "id": "30204dc2-24c5-4060-99a9-04980c571351"
+        },
+        "allowExtend": false,
+        "smooth": true,
+        "labels": [
+          {
+            "position": 0.5,
+            "attrs": {
+              "text": {
+                "text": "Relationship"
+              }
+            }
+          }
+        ],
+        "celltype": "relationship",
+        "id": "b0de7196-8552-431e-b044-565f605bfec0",
+        "embeds": "",
+        "z": 2,
+        "relID": "TI1OPqvKc7CPLsm6lLvW",
+        "attrs": {
+          ".connection": {
+            "stroke-width": 3,
+            "stroke": "#8a8a8a",
+            "data-category": "None"
+          },
+          ".marker-vertices": {
+            "display": "none"
+          },
+          ".marker-target": {
+            "fill": "#8a8a8a",
+            "stroke": "#8a8a8a",
+            "d": "M 10 0 L 0 5 L 10 10 z"
+          }
+        }
+      },
+      {
+        "type": "basic.InteractiveCircle",
+        "size": {
+          "width": 80,
+          "height": 80
+        },
+        "position": {
+          "x": 825,
+          "y": 240
+        },
+        "angle": 0,
+        "celltype": "actor",
+        "asset": "office01",
+        "id": "30204dc2-24c5-4060-99a9-04980c571351",
+        "elemID": "5a192730-b8e7-4f6a-9d72-d8dbb2fa6f0c",
+        "z": 3,
+        "attrs": {
+          ".outer": {
+            "fill": "#FF473A",
+            "magnet": true
+          },
+          ".inner": {
+            "fill": "#FF473A"
+          },
+          "text": {
+            "text": "Element 2",
+            "fill": "white"
+          }
+        }
+      }
+    ]
+  },
+  "graphElements": [
+    {
+      "name": "Element 1",
+      "actorelem": true,
+      "shape": "Circle",
+      "elemID": "32de872f-54ca-4653-85f1-ab0ece5f0a9f",
+      "asset": "office01",
+      "actorID": 14379
+    },
+    {
+      "name": "Element 2",
+      "actorelem": true,
+      "shape": "Circle",
+      "elemID": "5a192730-b8e7-4f6a-9d72-d8dbb2fa6f0c",
+      "asset": "office01",
+      "actorID": 14380
+    }
+  ],
+  "graphRelationships": [
+    {
+      "category": "None",
+      "relID": "8NPqeA9f0j8WGvmGzKoy",
+      "destid": "5a192730-b8e7-4f6a-9d72-d8dbb2fa6f0c",
+      "sourceid": "32de872f-54ca-4653-85f1-ab0ece5f0a9f",
+      "description": "",
+      "clientid": "TI1OPqvKc7CPLsm6lLvW",
+      "subtype": "None",
+      "type": "None",
+      "name": "Relationship"
+    }
+  ]
+}
