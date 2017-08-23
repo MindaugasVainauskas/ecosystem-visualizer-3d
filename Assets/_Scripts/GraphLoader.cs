@@ -27,6 +27,10 @@ public class GraphLoader : MonoBehaviour {
     public Transform cube;
     public Transform diamond;
     public Transform hex3d;
+    public Transform pyramid;
+    public Transform arrowUp;
+    public Transform arrowDown;
+    public Transform plus3d;
     //method to load the graph from json file
     public void LoadGraph(string path) {
         string loadGraph = JSONReader.LoadJSon(path);
@@ -63,6 +67,18 @@ public class GraphLoader : MonoBehaviour {
                 case "Hex":
                     instantiateHex(i);
                     break;
+                case "Pyramid":
+                    instantiatePyramid(i);
+                    break;
+                case "ArrowUp":
+                    instantiateArrowUp(i);
+                    break;
+                case "ArrowDown":
+                    instantiateArrowDown(i);
+                    break;
+                case "Plus":
+                    instantiatePlus(i);
+                    break;
                 default:
                     break;
             }
@@ -83,5 +99,21 @@ public class GraphLoader : MonoBehaviour {
     void instantiateHex(int x)
     {
         Instantiate(hex3d, new Vector3(0, 1, x+3), Quaternion.identity);
+    }
+    void instantiatePyramid(int x)
+    {
+        Instantiate(pyramid, new Vector3(0, 1, x + 4), Quaternion.identity);
+    }
+    void instantiateArrowUp(int x)
+    {
+        Instantiate(arrowUp, new Vector3(0, 1, x + 5), Quaternion.identity);
+    }
+    void instantiateArrowDown(int x)
+    {
+        Instantiate(arrowDown, new Vector3(0, 1, x + 6), Quaternion.identity);
+    }
+    void instantiatePlus(int x)
+    {
+        Instantiate(plus3d, new Vector3(0, 1, x + 7), Quaternion.identity);
     }
 }
