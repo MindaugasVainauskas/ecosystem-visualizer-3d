@@ -23,6 +23,7 @@ public class GraphLoader : MonoBehaviour {
 		
 	}
 
+    //Declarations of transforms for gameobjects
     public Transform sphere;
     public Transform cube;
     public Transform diamond;
@@ -53,6 +54,7 @@ public class GraphLoader : MonoBehaviour {
         for (int i = 0; i < elements.Length; i++)
         {
             string elShape = elements[i].shape;
+            //instantiate game objects depending on their shape
             switch (elShape)
             {
                 case "Circle":
