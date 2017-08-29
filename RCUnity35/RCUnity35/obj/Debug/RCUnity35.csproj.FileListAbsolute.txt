@@ -1,0 +1,4 @@
+c:\users\damienc\documents\visual studio 2015\Projects\RCUnity35\RCUnity35\obj\Debug\RCUnity35.csprojResolveAssemblyReference.cache
+c:\users\damienc\documents\visual studio 2015\Projects\RCUnity35\RCUnity35\obj\Debug\RCUnity35.winmd
+c:\users\damienc\documents\visual studio 2015\Projects\RCUnity35\RCUnity35\obj\Debug\RCUnity35.winmdobj
+c:\users\damienc\documents\visual studio 2015\Projects\RCUnity35\RCUnity35\obj\Debug\RCUnity35.compile.pdb
