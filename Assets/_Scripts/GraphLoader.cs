@@ -252,6 +252,7 @@ public class GraphLoader : MonoBehaviour
     {
         tempObj = new GameObject();
         lineRenderer = tempObj.AddComponent<LineRenderer>();
+        lineRenderer.material.color = Color.green;
         lineRenderer.widthMultiplier = 0.1f;
         linkPoints = new Vector3[numPoints];
         lineRenderer.positionCount = 50;
