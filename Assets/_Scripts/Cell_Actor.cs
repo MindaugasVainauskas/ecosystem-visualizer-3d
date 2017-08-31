@@ -5,7 +5,8 @@ using UnityEngine;
 
 //class to hold Graph node info
 [Serializable]
-public class Cell_Actor{
+public class Cell_Actor
+{
     public string type;
     public Size size;
     public Position position;
