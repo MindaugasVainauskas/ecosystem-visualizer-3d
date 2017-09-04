@@ -250,26 +250,50 @@ public class GraphLoader : MonoBehaviour
     //drawing the relationship between nodes
     public void drawRelationship(int numPoints, Vector3 p0, Vector3 p1)
     {
+        Vector3 midPoint = new Vector3();
         tempObj = new GameObject();
         lineRenderer = tempObj.AddComponent<LineRenderer>();
         lineRenderer.material.color = Color.green;
         lineRenderer.widthMultiplier = 0.1f;
         linkPoints = new Vector3[numPoints];
         lineRenderer.positionCount = 50;
+        midPoint = calcMidPoint(p0, p1);
+        midPoint.y += 1;
         for (int i = 1; i <= numPoints; i++)
         {
             float t = i / (float)numPoints;
-            linkPoints[i - 1] = drawStraightLine(t, p0, p1);
-            Debug.Log("link points: "+linkPoints[i-1]);
+           // linkPoints[i - 1] = drawStraightLine(t, p0, p1);
+            linkPoints[i-1] = drawCurvedRelation(t, p0, p1, midPoint);
+           // Debug.Log("link points: "+linkPoints[i-1]);            
         }
-        lineRenderer.SetPositions(linkPoints);
+        lineRenderer.SetPositions(linkPoints);        
+        Debug.Log("Mid-Point -> " + midPoint);
     }
 
+    //formulas to draw relations and associated with them functions ------ 
+    //function to calculate midpoint between 2 objects
+    private Vector3 calcMidPoint(Vector3 p0, Vector3 p1)
+    {
+        return (p0 + p1) / 2;
+    }
     //formula to draw the straight line
     private Vector3 drawStraightLine(float t, Vector3 p0, Vector3 p1)
     {
         return p0 + t * (p1 - p0);
     }
+
+    //draw arched relation
+    //\mathbf {B} (t)=(1-t)^{2}\mathbf {P} _{0}+2(1-t)t\mathbf {P} _{1}+t^{2}\mathbf {P} _{2}{\mbox{ , }}0\leq t\leq 1.
+    private Vector3 drawCurvedRelation(float t, Vector3 p0, Vector3 p1, Vector3 midPoint) {
+        Vector3 temp = new Vector3();
+        float r1 = 1 - t;
+        float tt = t * t;
+        float r2 = r1 * r1;
+        temp = r2 * p0 + 2 * r1 * t * midPoint + tt * p1;
+        return temp;
+    }
+
+    //instantiation of objects
     void instantiateSphere(int x)
     {
        Transform clone =  Instantiate(sphere, new Vector3(x * 2.0f, 1, 3), Quaternion.identity);
