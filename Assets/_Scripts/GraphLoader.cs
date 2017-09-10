@@ -197,8 +197,8 @@ public class GraphLoader : MonoBehaviour
             {
                 case "actor":
                     Debug.Log(cellType);
-                    float posX = cell["position"]["x"]-100;
-                    float posZ = cell["position"]["y"]-100;
+                    float posX = cell["position"]["x"]-600;
+                    float posZ = cell["position"]["y"];
                     Debug.Log("pos X = "+posX+", and pos Z = "+posZ);
 
                     string objectShape = cell["type"];
@@ -333,49 +333,49 @@ public class GraphLoader : MonoBehaviour
     //instantiation of objects
     void instantiateSphere(float posX, float posZ)
     {
-        Transform clone = Instantiate(sphere, new Vector3(posX/80, 1, posZ/80), Quaternion.identity);
+        Transform clone = Instantiate(sphere, new Vector3(posX/80, 0, posZ/80), Quaternion.identity);
        // clone.name = "sphere-" + x /;
         objectList.Add(clone.gameObject);
     }
     void instantiateCube(float posX, float posZ)
     {
-        Transform clone = Instantiate(cube, new Vector3(posX / 80, 1, posZ / 80), Quaternion.identity);
+        Transform clone = Instantiate(cube, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
        // clone.name = "Cube-" + x;
         objectList.Add(clone.gameObject);
     }
     void instantiateDiamond(float posX, float posZ)
     {
-        Transform clone = Instantiate(diamond, new Vector3(posX / 80, 1, posZ / 80), Quaternion.identity);
+        Transform clone = Instantiate(diamond, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
         //clone.name = "Diamond-" + x;
         objectList.Add(clone.gameObject);
     }
     void instantiateHex(float posX, float posZ)
     {
-        Transform clone = Instantiate(hex3d, new Vector3(posX / 80, 1, posZ / 80), Quaternion.identity);
+        Transform clone = Instantiate(hex3d, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
         //clone.name = "Hex-" + x;
         objectList.Add(clone.gameObject);
     }
     void instantiatePyramid(float posX, float posZ)
     {
-        Transform clone = Instantiate(pyramid, new Vector3(posX / 80, 1, posZ / 80), Quaternion.identity);
+        Transform clone = Instantiate(pyramid, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
         //clone.name = "Pyramid-" + x;
         objectList.Add(clone.gameObject);
     }
     void instantiateArrowUp(float posX, float posZ)
     {
-        Transform clone = Instantiate(arrowUp, new Vector3(posX / 80, 1, posZ / 80), Quaternion.identity);
+        Transform clone = Instantiate(arrowUp, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
        // clone.name = "ArrowUp-" + x;
         objectList.Add(clone.gameObject);
     }
     void instantiateArrowDown(float posX, float posZ)
     {
-        Transform clone = Instantiate(arrowDown, new Vector3(posX / 80, 1, posZ / 80), Quaternion.identity);
+        Transform clone = Instantiate(arrowDown, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
        // clone.name = "ArrowDown-" + x;
         objectList.Add(clone.gameObject);
     }
     void instantiatePlus(float posX, float posZ)
     {
-        Transform clone = Instantiate(plus3d, new Vector3(posX / 80, 1, posZ / 80), Quaternion.identity);
+        Transform clone = Instantiate(plus3d, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
        // clone.name = "Plus-" + x;
         objectList.Add(clone.gameObject);
     }
