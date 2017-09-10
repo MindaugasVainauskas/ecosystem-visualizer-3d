@@ -152,14 +152,13 @@ public class GraphLoader : MonoBehaviour
     //gets called before start. Called once per object lifetime
     void Awake()
     {
-       
-        LoadGraph("Simple.json");
+        LoadGraph("MoreComplex.json");
+        //LoadGraph("Simple.json");
     }
 
     // Use this for initialization
     void Start()
     {
-        // LoadGraph("MoreComplex.json");
 
     }
 
@@ -198,8 +197,8 @@ public class GraphLoader : MonoBehaviour
             {
                 case "actor":
                     Debug.Log(cellType);
-                    float posX = cell["position"]["x"];
-                    float posZ = cell["position"]["y"];
+                    float posX = cell["position"]["x"]-100;
+                    float posZ = cell["position"]["y"]-100;
                     Debug.Log("pos X = "+posX+", and pos Z = "+posZ);
 
                     string objectShape = cell["type"];
@@ -209,21 +208,20 @@ public class GraphLoader : MonoBehaviour
                             instantiateSphere(posX, posZ);
                             break;
                         case "basic.InteractiveRect":
-                            instantiateSphere(posX, posZ);
+                            instantiateCube(posX, posZ);
                             break;
                         case "basic.InteractiveDiamond":
-                            instantiateSphere(posX, posZ);
+                            instantiateDiamond(posX, posZ);
                             break;
                         case "basic.InteractiveHex":
-                            instantiateSphere(posX, posZ);
+                            instantiateHex(posX, posZ);
                             break;
                         default:
                             break;
                     }
                     
                     break;
-
-                case "relationship":
+                    
                 default:
                     break;
             }
@@ -232,53 +230,53 @@ public class GraphLoader : MonoBehaviour
            // Debug.Log(cellType);
         }
         
-        //this works on second and third parts of graph
-        ecosystem = JsonUtility.FromJson<Graph>(loadGraph);
+        ////this works on second and third parts of graph
+        //ecosystem = JsonUtility.FromJson<Graph>(loadGraph);
        
-        var elements = ecosystem.graphElements;
-        var relations = ecosystem.graphRelationships;
+        //var elements = ecosystem.graphElements;
+        //var relations = ecosystem.graphRelationships;
 
-        for (int i = 0; i < elements.Length; i++)
-        {
-            string elShape = elements[i].shape;
-            string elId = elements[i].elemID;
+        //for (int i = 0; i < elements.Length; i++)
+        //{
+        //    string elShape = elements[i].shape;
+        //    string elId = elements[i].elemID;
 
-            //instantiate game objects depending on their shape
-            switch (elShape)
-            {
-                case "Circle":
-                    //instantiateSphere(i);
-                    Debug.Log(objectList[i].name + " pos: " + objectList[i].transform.position+";  Id of this obj --> "+elId);
-                    break;
-                case "Square":
-                    instantiateCube(i);
-                    break;
-                case "Diamond":
-                    instantiateDiamond(i);
-                    break;
-                case "Hex":
-                    instantiateHex(i);
-                    break;
-                case "Pyramid":
-                    instantiatePyramid(i);
-                    break;
-                case "ArrowUp":
-                    instantiateArrowUp(i);
-                    break;
-                case "ArrowDown":
-                    instantiateArrowDown(i);
-                    break;
-                case "Plus":
-                    instantiatePlus(i);
-                    break;
-                default:
-                    break;
-            }
+        //    //instantiate game objects depending on their shape
+        //    switch (elShape)
+        //    {
+        //        case "Circle":
+        //            //instantiateSphere(i);
+        //            Debug.Log(objectList[i].name + " pos: " + objectList[i].transform.position+";  Id of this obj --> "+elId);
+        //            break;
+        //        case "Square":
+        //            instantiateCube(i);
+        //            break;
+        //        case "Diamond":
+        //            instantiateDiamond(i);
+        //            break;
+        //        case "Hex":
+        //            instantiateHex(i);
+        //            break;
+        //        case "Pyramid":
+        //            instantiatePyramid(i);
+        //            break;
+        //        case "ArrowUp":
+        //            instantiateArrowUp(i);
+        //            break;
+        //        case "ArrowDown":
+        //            instantiateArrowDown(i);
+        //            break;
+        //        case "Plus":
+        //            instantiatePlus(i);
+        //            break;
+        //        default:
+        //            break;
+        //    }
 
-        }//end of for loop
+        //}//end of for loop
         ////render relationship
         drawRelationship(50, objectList[0].transform.localPosition, objectList[1].transform.localPosition);
-    }
+    }//end of LoadGraph method
 
     private LineRenderer lineRenderer;
     public Vector3[] linkPoints;
@@ -333,59 +331,52 @@ public class GraphLoader : MonoBehaviour
     }
 
     //instantiation of objects
-    //void instantiateSphere(int x)
-    //{
-    //   Transform clone =  Instantiate(sphere, new Vector3(x * 2.0f, 1, 3), Quaternion.identity);
-    //    clone.name = "sphere-" + x;
-    //    objectList.Add(clone.gameObject);
-    //}
-
     void instantiateSphere(float posX, float posZ)
     {
         Transform clone = Instantiate(sphere, new Vector3(posX/80, 1, posZ/80), Quaternion.identity);
        // clone.name = "sphere-" + x /;
         objectList.Add(clone.gameObject);
     }
-    void instantiateCube(int x)
+    void instantiateCube(float posX, float posZ)
     {
-        Transform clone = Instantiate(cube, new Vector3(0, 1, x + 1), Quaternion.identity);
-        clone.name = "Cube-" + x;
+        Transform clone = Instantiate(cube, new Vector3(posX / 80, 1, posZ / 80), Quaternion.identity);
+       // clone.name = "Cube-" + x;
         objectList.Add(clone.gameObject);
     }
-    void instantiateDiamond(int x)
+    void instantiateDiamond(float posX, float posZ)
     {
-        Transform clone = Instantiate(diamond, new Vector3(0, 1, x + 2), Quaternion.identity);
-        clone.name = "Diamond-" + x;
+        Transform clone = Instantiate(diamond, new Vector3(posX / 80, 1, posZ / 80), Quaternion.identity);
+        //clone.name = "Diamond-" + x;
         objectList.Add(clone.gameObject);
     }
-    void instantiateHex(int x)
+    void instantiateHex(float posX, float posZ)
     {
-        Transform clone = Instantiate(hex3d, new Vector3(0, 1, x + 3), Quaternion.identity);
-        clone.name = "Hex-" + x;
+        Transform clone = Instantiate(hex3d, new Vector3(posX / 80, 1, posZ / 80), Quaternion.identity);
+        //clone.name = "Hex-" + x;
         objectList.Add(clone.gameObject);
     }
-    void instantiatePyramid(int x)
+    void instantiatePyramid(float posX, float posZ)
     {
-        Transform clone = Instantiate(pyramid, new Vector3(0, 1, x + 4), Quaternion.identity);
-        clone.name = "Pyramid-" + x;
+        Transform clone = Instantiate(pyramid, new Vector3(posX / 80, 1, posZ / 80), Quaternion.identity);
+        //clone.name = "Pyramid-" + x;
         objectList.Add(clone.gameObject);
     }
-    void instantiateArrowUp(int x)
+    void instantiateArrowUp(float posX, float posZ)
     {
-        Transform clone = Instantiate(arrowUp, new Vector3(0, 1, x + 5), Quaternion.identity);
-        clone.name = "ArrowUp-" + x;
+        Transform clone = Instantiate(arrowUp, new Vector3(posX / 80, 1, posZ / 80), Quaternion.identity);
+       // clone.name = "ArrowUp-" + x;
         objectList.Add(clone.gameObject);
     }
-    void instantiateArrowDown(int x)
+    void instantiateArrowDown(float posX, float posZ)
     {
-        Transform clone = Instantiate(arrowDown, new Vector3(0, 1, x + 6), Quaternion.identity);
-        clone.name = "ArrowDown-" + x;
+        Transform clone = Instantiate(arrowDown, new Vector3(posX / 80, 1, posZ / 80), Quaternion.identity);
+       // clone.name = "ArrowDown-" + x;
         objectList.Add(clone.gameObject);
     }
-    void instantiatePlus(int x)
+    void instantiatePlus(float posX, float posZ)
     {
-        Transform clone = Instantiate(plus3d, new Vector3(0, 1, x + 7), Quaternion.identity);
-        clone.name = "Plus-" + x;
+        Transform clone = Instantiate(plus3d, new Vector3(posX / 80, 1, posZ / 80), Quaternion.identity);
+       // clone.name = "Plus-" + x;
         objectList.Add(clone.gameObject);
     }
 }
