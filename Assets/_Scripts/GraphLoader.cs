@@ -184,32 +184,71 @@ public class GraphLoader : MonoBehaviour
     {
         objectList = new List<GameObject>();
         string loadGraph = JSONReader.LoadJSon(path);
-       // JSONNode node = JSON.Parse(loadGraph);
 
-        //JSONNode cell = node["graph"];
-      //  JToken array = JObject.Parse(loadGraph);
-        //dynamic jsonarray = JsonConvert.DeserializeObject<dynamic>(loadGraph);
-        //var cells = jsonarray.cells;
-        //foreach (var cell in cells)
-        //{
-        //    var celltype = cell.celltype;
-        //    Debug.Log(celltype);
-        //}
-          ecosystem = JsonUtility.FromJson<Graph>(loadGraph);
-        //Debug.Log(loadGraph);
+        JSONNode jNode = JSON.Parse(loadGraph);
 
+        //split JSON node into JSON array.
+        JSONArray innerJson = (JSONArray)jNode["graph"]["cells"];
+
+        foreach (JSONNode cell in innerJson)
+        {
+            string cellType = cell["celltype"];
+
+            switch (cellType)
+            {
+                case "actor":
+                    Debug.Log(cellType);
+                    float posX = cell["position"]["x"];
+                    float posZ = cell["position"]["y"];
+                    Debug.Log("pos X = "+posX+", and pos Z = "+posZ);
+
+                    string objectShape = cell["type"];
+                    switch (objectShape)
+                    {
+                        case "basic.InteractiveCircle":
+                            instantiateSphere(posX, posZ);
+                            break;
+                        case "basic.InteractiveRect":
+                            instantiateSphere(posX, posZ);
+                            break;
+                        case "basic.InteractiveDiamond":
+                            instantiateSphere(posX, posZ);
+                            break;
+                        case "basic.InteractiveHex":
+                            instantiateSphere(posX, posZ);
+                            break;
+                        default:
+                            break;
+                    }
+                    
+                    break;
+
+                case "relationship":
+                default:
+                    break;
+            }
+
+
+           // Debug.Log(cellType);
+        }
+        
+        //this works on second and third parts of graph
+        ecosystem = JsonUtility.FromJson<Graph>(loadGraph);
+       
         var elements = ecosystem.graphElements;
+        var relations = ecosystem.graphRelationships;
 
         for (int i = 0; i < elements.Length; i++)
         {
             string elShape = elements[i].shape;
+            string elId = elements[i].elemID;
+
             //instantiate game objects depending on their shape
             switch (elShape)
             {
                 case "Circle":
-                    instantiateSphere(i);
-
-                    Debug.Log(objectList[i].name + " pos: " + objectList[i].transform.position);
+                    //instantiateSphere(i);
+                    Debug.Log(objectList[i].name + " pos: " + objectList[i].transform.position+";  Id of this obj --> "+elId);
                     break;
                 case "Square":
                     instantiateCube(i);
@@ -236,7 +275,7 @@ public class GraphLoader : MonoBehaviour
                     break;
             }
 
-        }
+        }//end of for loop
         ////render relationship
         drawRelationship(50, objectList[0].transform.localPosition, objectList[1].transform.localPosition);
     }
@@ -294,10 +333,17 @@ public class GraphLoader : MonoBehaviour
     }
 
     //instantiation of objects
-    void instantiateSphere(int x)
+    //void instantiateSphere(int x)
+    //{
+    //   Transform clone =  Instantiate(sphere, new Vector3(x * 2.0f, 1, 3), Quaternion.identity);
+    //    clone.name = "sphere-" + x;
+    //    objectList.Add(clone.gameObject);
+    //}
+
+    void instantiateSphere(float posX, float posZ)
     {
-       Transform clone =  Instantiate(sphere, new Vector3(x * 2.0f, 1, 3), Quaternion.identity);
-        clone.name = "sphere-" + x;
+        Transform clone = Instantiate(sphere, new Vector3(posX/80, 1, posZ/80), Quaternion.identity);
+       // clone.name = "sphere-" + x /;
         objectList.Add(clone.gameObject);
     }
     void instantiateCube(int x)
