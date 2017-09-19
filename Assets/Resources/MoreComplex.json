@@ -1,0 +1,664 @@
+{
+  "graph": {
+    "cells": [
+      {
+        "type": "basic.InteractiveCircle",
+        "size": {
+          "width": 80,
+          "height": 80
+        },
+        "position": {
+          "x": 423,
+          "y": 148
+        },
+        "angle": 0,
+        "celltype": "actor",
+        "asset": "office01",
+        "id": "a7992be2-0a29-4a37-abdf-b02d51234b4e",
+        "elemID": "cf1abada-8b56-4461-b8e3-529997b4e42c",
+        "z": 5,
+        "attrs": {
+          ".outer": {
+            "fill": "#ff473a",
+            "magnet": true
+          },
+          ".inner": {
+            "fill": "#ff473a"
+          },
+          "text": {
+            "text": "Element 1",
+            "fill": "white"
+          }
+        }
+      },
+      {
+        "type": "link",
+        "source": {
+          "id": "a7992be2-0a29-4a37-abdf-b02d51234b4e",
+          "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)",
+          "port": null
+        },
+        "target": {
+          "id": "d5d8f363-9f9e-44fe-bb17-0355664ac5e0"
+        },
+        "allowExtend": false,
+        "smooth": true,
+        "labels": [
+          {
+            "position": 0.5,
+            "attrs": {
+              "text": {
+                "text": "1->2"
+              }
+            }
+          }
+        ],
+        "celltype": "relationship",
+        "id": "dc1847d8-c7c3-4d98-bcf5-0dcd2163b3c6",
+        "embeds": "",
+        "z": 5,
+        "relID": "ZtBaRbBwygb41cFeINar",
+        "vertices": [
+          {
+            "x": 699.5,
+            "y": 187
+          }
+        ],
+        "attrs": {
+          ".connection": {
+            "stroke-width": 3,
+            "stroke": "mediumpurple",
+            "data-category": "Product\/Service"
+          },
+          ".marker-vertices": {
+            "display": "none"
+          },
+          ".marker-target": {
+            "fill": "mediumpurple",
+            "stroke": "mediumpurple",
+            "d": "M 10 0 L 0 5 L 10 10 z"
+          }
+        }
+      },
+      {
+        "type": "basic.InteractiveRect",
+        "size": {
+          "width": 80,
+          "height": 80
+        },
+        "position": {
+          "x": 896,
+          "y": 146
+        },
+        "angle": 0,
+        "celltype": "actor",
+        "asset": "office01",
+        "id": "d5d8f363-9f9e-44fe-bb17-0355664ac5e0",
+        "elemID": "cf08f138-f2d2-4022-bbb5-050e836a6b04",
+        "z": 6,
+        "attrs": {
+          ".outer": {
+            "fill": "#273fa1",
+            "magnet": true
+          },
+          ".inner": {
+            "fill": "#273fa1"
+          },
+          "text": {
+            "fill": "white",
+            "text": "Element 2"
+          }
+        }
+      },
+      {
+        "type": "link",
+        "source": {
+          "id": "d5d8f363-9f9e-44fe-bb17-0355664ac5e0",
+          "selector": "g:nth-child(1) > g:nth-child(1) > rect:nth-child(1)",
+          "port": null
+        },
+        "target": {
+          "id": "b0ee6bc3-d68d-4fae-93e9-3dbe3aa5594e"
+        },
+        "allowExtend": false,
+        "smooth": true,
+        "labels": [
+          {
+            "position": 0.5,
+            "attrs": {
+              "text": {
+                "text": "2->3"
+              }
+            }
+          }
+        ],
+        "celltype": "relationship",
+        "id": "2858b215-f378-41a0-9728-b440e7e94014",
+        "embeds": "",
+        "z": 6,
+        "relID": "8jPcBCM0zVOZPlWksFyT",
+        "vertices": [
+          {
+            "x": 942.5,
+            "y": 322.5
+          }
+        ],
+        "attrs": {
+          ".connection": {
+            "stroke-width": 3,
+            "stroke": "orange",
+            "data-category": "Data"
+          },
+          ".marker-vertices": {
+            "display": "none"
+          },
+          ".marker-target": {
+            "fill": "orange",
+            "stroke": "orange",
+            "d": "M 10 0 L 0 5 L 10 10 z"
+          }
+        }
+      },
+      {
+        "type": "basic.InteractiveDiamond",
+        "size": {
+          "width": 80,
+          "height": 80
+        },
+        "position": {
+          "x": 909,
+          "y": 419
+        },
+        "angle": 0,
+        "celltype": "actor",
+        "asset": "office01",
+        "id": "b0ee6bc3-d68d-4fae-93e9-3dbe3aa5594e",
+        "elemID": "115cadde-f5b1-4cbb-b5d1-492da18fc3c2",
+        "z": 7,
+        "attrs": {
+          ".outer": {
+            "fill": "#12e034",
+            "magnet": true
+          },
+          ".inner": {
+            "fill": "#12e034"
+          },
+          "text": {
+            "fill": "white",
+            "text": "Element 3"
+          }
+        }
+      },
+      {
+        "type": "link",
+        "source": {
+          "id": "b0ee6bc3-d68d-4fae-93e9-3dbe3aa5594e",
+          "selector": "g:nth-child(1) > g:nth-child(1) > path:nth-child(1)",
+          "port": null
+        },
+        "target": {
+          "id": "8bc6924d-a1f4-451d-b778-d06ba46374e7"
+        },
+        "allowExtend": false,
+        "smooth": true,
+        "labels": [
+          {
+            "position": 0.5,
+            "attrs": {
+              "text": {
+                "text": "3->4"
+              }
+            }
+          }
+        ],
+        "celltype": "relationship",
+        "id": "af6483f2-eb7e-4aae-a477-a5c894d667d6",
+        "embeds": "",
+        "z": 7,
+        "relID": "YW2w8DIiSRkCzIIVZ4M8",
+        "vertices": [
+          {
+            "x": 710,
+            "y": 456.5
+          }
+        ],
+        "attrs": {
+          ".connection": {
+            "stroke-width": 3,
+            "stroke": "lightgreen",
+            "data-category": "Financial"
+          },
+          ".marker-vertices": {
+            "display": "none"
+          },
+          ".marker-target": {
+            "fill": "lightgreen",
+            "stroke": "lightgreen",
+            "d": "M 10 0 L 0 5 L 10 10 z"
+          },
+          "data-category": {
+            "0": "F",
+            "1": "i",
+            "2": "n",
+            "3": "a",
+            "4": "n",
+            "5": "c",
+            "6": "i",
+            "7": "a",
+            "8": "l"
+          }
+        }
+      },
+      {
+        "type": "basic.InteractiveHex",
+        "size": {
+          "width": 80,
+          "height": 80
+        },
+        "position": {
+          "x": 431,
+          "y": 414
+        },
+        "angle": 0,
+        "celltype": "actor",
+        "asset": "office01",
+        "id": "8bc6924d-a1f4-451d-b778-d06ba46374e7",
+        "elemID": "44114179-0b02-4f00-97ed-001b350064b9",
+        "z": 8,
+        "attrs": {
+          ".outer": {
+            "fill": "#fa930d",
+            "magnet": true
+          },
+          ".inner": {
+            "fill": "#fa930d"
+          },
+          "text": {
+            "fill": "white",
+            "text": "Element 4"
+          }
+        }
+      },
+      {
+        "type": "link",
+        "source": {
+          "id": "8bc6924d-a1f4-451d-b778-d06ba46374e7",
+          "selector": "g:nth-child(1) > g:nth-child(1) > path:nth-child(1)",
+          "port": null
+        },
+        "target": {
+          "id": "a7992be2-0a29-4a37-abdf-b02d51234b4e"
+        },
+        "allowExtend": false,
+        "smooth": true,
+        "labels": [
+          {
+            "position": 0.5,
+            "attrs": {
+              "text": {
+                "text": "4->1"
+              }
+            }
+          }
+        ],
+        "celltype": "relationship",
+        "id": "faf85091-4076-4b9c-ac3f-ab0b7986b45f",
+        "embeds": "",
+        "z": 8,
+        "relID": "wCRsAoC6GTqNzHtjqRHR",
+        "vertices": [
+          {
+            "x": 467,
+            "y": 321
+          }
+        ],
+        "attrs": {
+          ".connection": {
+            "stroke-width": 3,
+            "stroke": "DarkSalmon",
+            "data-category": "Operational"
+          },
+          ".marker-vertices": {
+            "display": "none"
+          },
+          ".marker-target": {
+            "fill": "DarkSalmon",
+            "stroke": "DarkSalmon",
+            "d": "M 10 0 L 0 5 L 10 10 z"
+          }
+        }
+      },
+      {
+        "type": "link",
+        "source": {
+          "id": "d5d8f363-9f9e-44fe-bb17-0355664ac5e0",
+          "selector": "g:nth-child(1) > g:nth-child(1) > rect:nth-child(1)",
+          "port": null
+        },
+        "target": {
+          "id": "a7992be2-0a29-4a37-abdf-b02d51234b4e"
+        },
+        "allowExtend": false,
+        "smooth": true,
+        "labels": [
+          {
+            "position": 0.6,
+            "attrs": {
+              "text": {
+                "text": "2->1"
+              }
+            }
+          }
+        ],
+        "celltype": "relationship",
+        "id": "7a1945df-6062-44a7-aec2-b7107f62070f",
+        "embeds": "",
+        "z": 9,
+        "vertices": [
+          {
+            "x": 699.33086831954,
+            "y": 147.00035757066
+          }
+        ],
+        "relID": "7qcBAmujUTXfabQ6wngG",
+        "attrs": {
+          ".connection": {
+            "stroke-width": 3,
+            "stroke": "orange",
+            "data-category": "Data"
+          },
+          ".marker-vertices": {
+            "display": "none"
+          },
+          ".marker-target": {
+            "fill": "orange",
+            "stroke": "orange",
+            "d": "M 10 0 L 0 5 L 10 10 z"
+          }
+        }
+      },
+      {
+        "type": "link",
+        "source": {
+          "id": "a7992be2-0a29-4a37-abdf-b02d51234b4e",
+          "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)",
+          "port": null
+        },
+        "target": {
+          "id": "8bc6924d-a1f4-451d-b778-d06ba46374e7"
+        },
+        "allowExtend": false,
+        "smooth": true,
+        "labels": [
+          {
+            "position": 0.6,
+            "attrs": {
+              "text": {
+                "text": "1->4"
+              }
+            }
+          }
+        ],
+        "celltype": "relationship",
+        "id": "2485e207-9b8d-44d1-a457-528447669d12",
+        "embeds": "",
+        "z": 10,
+        "vertices": [
+          {
+            "x": 506.98192192439,
+            "y": 319.79753618273
+          }
+        ],
+        "relID": "QxeQct2YbqNSLYOmW54F",
+        "attrs": {
+          ".connection": {
+            "stroke-width": 3,
+            "stroke": "lightgreen",
+            "data-category": "Financial"
+          },
+          ".marker-vertices": {
+            "display": "none"
+          },
+          ".marker-target": {
+            "fill": "lightgreen",
+            "stroke": "lightgreen",
+            "d": "M 10 0 L 0 5 L 10 10 z"
+          },
+          "data-category": {
+            "0": "F",
+            "1": "i",
+            "2": "n",
+            "3": "a",
+            "4": "n",
+            "5": "c",
+            "6": "i",
+            "7": "a",
+            "8": "l"
+          }
+        }
+      },
+      {
+        "type": "link",
+        "source": {
+          "id": "8bc6924d-a1f4-451d-b778-d06ba46374e7",
+          "selector": "g:nth-child(1) > g:nth-child(1) > path:nth-child(1)",
+          "port": null
+        },
+        "target": {
+          "id": "b0ee6bc3-d68d-4fae-93e9-3dbe3aa5594e"
+        },
+        "allowExtend": false,
+        "smooth": true,
+        "labels": [
+          {
+            "position": 0.6,
+            "attrs": {
+              "text": {
+                "text": "4->3"
+              }
+            }
+          }
+        ],
+        "celltype": "relationship",
+        "id": "d8327bf9-465d-47dc-aebc-741fbf444125",
+        "embeds": "",
+        "z": 11,
+        "vertices": [
+          {
+            "x": 709.58161284684,
+            "y": 496.49781184253
+          }
+        ],
+        "relID": "gIK371enKWyFEkCkxKMW",
+        "attrs": {
+          ".connection": {
+            "stroke-width": 3,
+            "stroke": "blue",
+            "data-category": "Contractual"
+          },
+          ".marker-vertices": {
+            "display": "none"
+          },
+          ".marker-target": {
+            "fill": "blue",
+            "stroke": "blue",
+            "d": "M 10 0 L 0 5 L 10 10 z"
+          }
+        }
+      },
+      {
+        "type": "link",
+        "source": {
+          "id": "b0ee6bc3-d68d-4fae-93e9-3dbe3aa5594e",
+          "selector": "g:nth-child(1) > g:nth-child(1) > path:nth-child(1)",
+          "port": null
+        },
+        "target": {
+          "id": "d5d8f363-9f9e-44fe-bb17-0355664ac5e0"
+        },
+        "allowExtend": false,
+        "smooth": true,
+        "labels": [
+          {
+            "position": 0.6,
+            "attrs": {
+              "text": {
+                "text": "3->2"
+              }
+            }
+          }
+        ],
+        "celltype": "relationship",
+        "id": "09e87ab8-2741-48ca-9391-33e4eb30b7fa",
+        "embeds": "",
+        "z": 12,
+        "vertices": [
+          {
+            "x": 982.45472550898,
+            "y": 320.59739402338
+          }
+        ],
+        "relID": "waLFD7oXoQpWaDDKE9dM",
+        "attrs": {
+          ".connection": {
+            "stroke-width": 3,
+            "stroke": "DarkSalmon",
+            "data-category": "Operational"
+          },
+          ".marker-vertices": {
+            "display": "none"
+          },
+          ".marker-target": {
+            "fill": "DarkSalmon",
+            "stroke": "DarkSalmon",
+            "d": "M 10 0 L 0 5 L 10 10 z"
+          }
+        }
+      }
+    ]
+  },
+  "graphElements": [
+    {
+      "name": "Element 1",
+      "actorelem": true,
+      "shape": "Circle",
+      "elemID": "cf1abada-8b56-4461-b8e3-529997b4e42c",
+      "asset": "office01",
+      "actorID": 14379
+    },
+    {
+      "name": "Element 2",
+      "actorelem": true,
+      "shape": "Square",
+      "elemID": "cf08f138-f2d2-4022-bbb5-050e836a6b04",
+      "asset": "office01",
+      "actorID": 14380
+    },
+    {
+      "name": "Element 3",
+      "actorelem": true,
+      "shape": "Diamond",
+      "elemID": "115cadde-f5b1-4cbb-b5d1-492da18fc3c2",
+      "asset": "office01",
+      "actorID": 14381
+    },
+    {
+      "name": "Element 4",
+      "actorelem": true,
+      "shape": "Hex",
+      "elemID": "44114179-0b02-4f00-97ed-001b350064b9",
+      "asset": "office01",
+      "actorID": 14382
+    }
+  ],
+  "graphRelationships": [
+    {
+      "category": "Product\/Service",
+      "relID": "LKidyI4LZsVMYdGBxkdu",
+      "destid": "cf08f138-f2d2-4022-bbb5-050e836a6b04",
+      "sourceid": "cf1abada-8b56-4461-b8e3-529997b4e42c",
+      "description": "",
+      "clientid": "ZtBaRbBwygb41cFeINar",
+      "subtype": "None",
+      "type": "None",
+      "name": "1->2"
+    },
+    {
+      "category": "Data",
+      "relID": "KWAeZCYEUyPMAMnuzIO1",
+      "destid": "115cadde-f5b1-4cbb-b5d1-492da18fc3c2",
+      "sourceid": "cf08f138-f2d2-4022-bbb5-050e836a6b04",
+      "description": "",
+      "clientid": "8jPcBCM0zVOZPlWksFyT",
+      "subtype": "None",
+      "type": "Activation and Configuration API",
+      "name": "2->3"
+    },
+    {
+      "category": "Financial",
+      "relID": "Ze6Gw9XTULoSVdB6gf5r",
+      "destid": "44114179-0b02-4f00-97ed-001b350064b9",
+      "sourceid": "115cadde-f5b1-4cbb-b5d1-492da18fc3c2",
+      "description": "",
+      "clientid": "YW2w8DIiSRkCzIIVZ4M8",
+      "subtype": "Tier Rate Model",
+      "type": "Revenue Model",
+      "name": "3->4"
+    },
+    {
+      "category": "Operational",
+      "relID": "DJZuKuUG5RxfNcxKVPpX",
+      "destid": "cf1abada-8b56-4461-b8e3-529997b4e42c",
+      "sourceid": "44114179-0b02-4f00-97ed-001b350064b9",
+      "description": "",
+      "clientid": "wCRsAoC6GTqNzHtjqRHR",
+      "subtype": "None",
+      "type": "Place Order",
+      "name": "4->1"
+    },
+    {
+      "category": "Data",
+      "relID": "iJ46P4sS6yKGZkfvpklD",
+      "destid": "cf1abada-8b56-4461-b8e3-529997b4e42c",
+      "sourceid": "cf08f138-f2d2-4022-bbb5-050e836a6b04",
+      "description": "",
+      "clientid": "7qcBAmujUTXfabQ6wngG",
+      "subtype": "None",
+      "type": "Billing Management API",
+      "name": "2->1"
+    },
+    {
+      "category": "Financial",
+      "relID": "0idKxpoe8217RkvkEPBJ",
+      "destid": "44114179-0b02-4f00-97ed-001b350064b9",
+      "sourceid": "cf1abada-8b56-4461-b8e3-529997b4e42c",
+      "description": "",
+      "clientid": "QxeQct2YbqNSLYOmW54F",
+      "subtype": "Progressive Model",
+      "type": "Billing on Behalf of",
+      "name": "1->4"
+    },
+    {
+      "category": "Contractual",
+      "relID": "BjUWEmejmI0k7DShe89N",
+      "destid": "115cadde-f5b1-4cbb-b5d1-492da18fc3c2",
+      "sourceid": "44114179-0b02-4f00-97ed-001b350064b9",
+      "description": "",
+      "clientid": "gIK371enKWyFEkCkxKMW",
+      "subtype": "Sell Through",
+      "type": "Distribute",
+      "name": "4->3"
+    },
+    {
+      "category": "Operational",
+      "relID": "xooPTRCmr22Og0LSRKRG",
+      "destid": "cf08f138-f2d2-4022-bbb5-050e836a6b04",
+      "sourceid": "115cadde-f5b1-4cbb-b5d1-492da18fc3c2",
+      "description": "",
+      "clientid": "waLFD7oXoQpWaDDKE9dM",
+      "subtype": "None",
+      "type": "Notify solution",
+      "name": "3->2"
+    }
+  ]
+}
