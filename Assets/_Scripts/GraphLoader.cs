@@ -1,145 +1,5 @@
-﻿//using Newtonsoft.Json;
-//using System;
-//using System.IO;
-//using System.Linq;
-//using UnityEngine;
-
-//public class GraphLoader : MonoBehaviour
-//{
-//GraphRootObject myGraphRoot;
-
-//void Awake() {
-//    LoadGraph("Simple.json");
-//    readTheGraph();
-//}
-
-//private void LoadGraph(string path)
-//{
-//    string loadGraph = JSONReader.LoadJSon(path);
-
-//    if (myGraphRoot == null) myGraphRoot = new GraphRootObject();
-
-//    dynamic json = JsonConvert.DeserializeObject<GraphRootObject>(loadGraph);
-
-//    myGraphRoot = json;
-//}
-
-//public void readTheGraph() {
-//    string actorString;
-//    string linkString;
-//    for (int i = 0; i < myGraphRoot.graph.cells.Count(); i++)
-//    {
-//        switch (myGraphRoot.graph.cells[i].celltype)
-//        {
-//            case "actor":
-//                {
-//                    actorString = Environment.NewLine +
-//                                    "celltype: " + myGraphRoot.graph.cells[i].celltype + Environment.NewLine +
-//                                    "size: " + myGraphRoot.graph.cells[i].size.width + ", " + myGraphRoot.graph.cells[i].size.height + Environment.NewLine +
-//                                    "outer fill: " + myGraphRoot.graph.cells[i].attrs.outer.fill + Environment.NewLine +
-//                                    "attrs text text:" + myGraphRoot.graph.cells[i].attrs.text.text + Environment.NewLine +
-//                                    "attrs text fill: " + myGraphRoot.graph.cells[i].attrs.text.fill + Environment.NewLine;
-
-//                    Debug.Log(actorString);
-//                    break;
-//                }
-//            case "relationship":
-//                {
-//                    linkString = Environment.NewLine +
-//                                    "celltype: " + myGraphRoot.graph.cells[i].celltype + Environment.NewLine +
-//                                    "source id: " + myGraphRoot.graph.cells[i].source.id + Environment.NewLine +
-//                                    "target id: " + myGraphRoot.graph.cells[i].target.id + Environment.NewLine +
-//                                    "attrs text text: " + myGraphRoot.graph.cells[i].labels[0].attrs.text.text + Environment.NewLine;
-//                    Debug.Log(linkString);
-//                    break;
-//                }
-//            default:
-//                break;
-//        }
-//    }
-//}
-
-
-//private void updateScreenData()
-//{
-//    tblData.Text = tblData.Text + Environment.NewLine + "Data Retrieved...";
-
-//    for (int i = 0; i < myGraphRoot.graph.cells.Count(); i++)
-//    {
-//        switch (myGraphRoot.graph.cells[i].celltype)
-//        {
-//            case "actor":
-//                {
-//                    tblData.Text = tblData.Text + Environment.NewLine +
-//                                    "celltype: " + myGraphRoot.graph.cells[i].celltype + Environment.NewLine +
-//                                    "size: " + myGraphRoot.graph.cells[i].size.width + ", " + myGraphRoot.graph.cells[i].size.height + Environment.NewLine +
-//                                    "outer fill: " + myGraphRoot.graph.cells[i].attrs.outer.fill + Environment.NewLine +
-//                                    "attrs text text:" + myGraphRoot.graph.cells[i].attrs.text.text + Environment.NewLine +
-//                                    "attrs text fill: " + myGraphRoot.graph.cells[i].attrs.text.fill + Environment.NewLine;
-//                    break;
-//                }
-//            case "relationship":
-//                {
-//                    tblData.Text = tblData.Text + Environment.NewLine +
-//                                    "celltype: " + myGraphRoot.graph.cells[i].celltype + Environment.NewLine +
-//                                    "source id: " + myGraphRoot.graph.cells[i].source.id + Environment.NewLine +
-//                                    "target id: " + myGraphRoot.graph.cells[i].target.id + Environment.NewLine +
-//                                    "attrs text text: " + myGraphRoot.graph.cells[i].labels[0].attrs.text.text + Environment.NewLine;
-//                    break;
-//                }
-//            default:
-//                break;
-//        }
-//    }
-
-
-//}// end of GraphLoader
-
-//    private async void loadData(string filePath)
-//    {
-//        if (myGraphRoot == null) myGraphRoot = new GraphRootObject();
-//        StorageFolder storageFolder;
-//        StorageFile storageFile;
-
-//        string text;
-//        try
-//        {
-//            storageFolder = ApplicationData.Current.LocalFolder;
-//            storageFile = await storageFolder.GetFileAsync("Simple.Json");
-//            text = await File.ReadTextAsync(storageFile);
-
-//            //var result = JsonConvert.DeserializeObject<RootObject>(json);
-//        dynamic json = JsonConvert.DeserializeObject<GraphRootObject>(text);
-
-//        myGraphRoot = json;
-//    }
-//    catch (Exception ex)
-//    {
-//        tblData.Text = "Error: " + ex.Message;
-//    }
-
-//}
-
-//    //private void cmdData_Click(object sender, RoutedEventArgs e)
-//    //{
-//    //    string filePath = "/Resources/Simple.Json";
-//    //    tblData.Text = filePath;
-
-//    //    loadData(filePath);
-//    //    updateScreenData();
-
-//    //}
-//}
-
-
-
-
-
-
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using SimpleJSON;
+﻿using SimpleJSON;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -187,95 +47,84 @@ public class GraphLoader : MonoBehaviour
         JSONNode jNode = JSON.Parse(loadGraph);
 
         //split JSON node into JSON array.
-        JSONArray innerJson = (JSONArray)jNode["graph"]["cells"];
+        JSONArray cellArray = (JSONArray)jNode["graph"]["cells"];
 
-        foreach (JSONNode cell in innerJson)
+        foreach (JSONNode cell in cellArray)
         {
             string cellType = cell["celltype"];
 
             switch (cellType)
             {
                 case "actor":
-                    Debug.Log(cellType);
+                    //Debug.Log(cellType);
                     float posX = cell["position"]["x"]-600;
                     float posZ = cell["position"]["y"];
-                    Debug.Log("pos X = "+posX+", and pos Z = "+posZ);
+                    string objId = cell["elemID"];
+                   // Debug.Log("pos X = "+posX+", and pos Z = "+posZ+". Object ID -> "+objId);
 
                     string objectShape = cell["type"];
+                    
                     switch (objectShape)
                     {
                         case "basic.InteractiveCircle":
-                            instantiateSphere(posX, posZ);
+                            instantiateSphere(posX, posZ, objId);
                             break;
                         case "basic.InteractiveRect":
-                            instantiateCube(posX, posZ);
+                            instantiateCube(posX, posZ, objId);
                             break;
                         case "basic.InteractiveDiamond":
-                            instantiateDiamond(posX, posZ);
+                            instantiateDiamond(posX, posZ, objId);
                             break;
                         case "basic.InteractiveHex":
-                            instantiateHex(posX, posZ);
+                            instantiateHex(posX, posZ, objId);
                             break;
                         default:
                             break;
-                    }
-                    
+                    }                    
                     break;
                     
                 default:
                     break;
-            }
+            }//end of switch(cellType)
+        }//end of forEach(JSONNode cell in cellArray)
 
-
-           // Debug.Log(cellType);
-        }
-        
         ////this works on second and third parts of graph
-        //ecosystem = JsonUtility.FromJson<Graph>(loadGraph);
-       
+        ecosystem = JsonUtility.FromJson<Graph>(loadGraph);
+
         //var elements = ecosystem.graphElements;
-        //var relations = ecosystem.graphRelationships;
+        var relations = ecosystem.graphRelationships;
 
-        //for (int i = 0; i < elements.Length; i++)
-        //{
-        //    string elShape = elements[i].shape;
-        //    string elId = elements[i].elemID;
-
-        //    //instantiate game objects depending on their shape
-        //    switch (elShape)
-        //    {
-        //        case "Circle":
-        //            //instantiateSphere(i);
-        //            Debug.Log(objectList[i].name + " pos: " + objectList[i].transform.position+";  Id of this obj --> "+elId);
-        //            break;
-        //        case "Square":
-        //            instantiateCube(i);
-        //            break;
-        //        case "Diamond":
-        //            instantiateDiamond(i);
-        //            break;
-        //        case "Hex":
-        //            instantiateHex(i);
-        //            break;
-        //        case "Pyramid":
-        //            instantiatePyramid(i);
-        //            break;
-        //        case "ArrowUp":
-        //            instantiateArrowUp(i);
-        //            break;
-        //        case "ArrowDown":
-        //            instantiateArrowDown(i);
-        //            break;
-        //        case "Plus":
-        //            instantiatePlus(i);
-        //            break;
-        //        default:
-        //            break;
-        //    }
-
-        //}//end of for loop
+        foreach (var link in relations)
+        {
+            Vector3 startPos = new Vector3();
+            Vector3 endPos = new Vector3();
+            //Debug.Log("Source ID ->"+link.sourceid);
+           // Debug.Log("Target ID ->" + link.destid);
+            for (int i = 0; i < objectList.Count; i++)
+            {
+               // Debug.Log("Object No."+i+" ID from object list: "+objectList[i].name);
+               // Debug.Log("Object Li." + i + " ID from source.....:" + link.sourceid);
+                if(link.sourceid.Equals(objectList[i].name))
+                {
+                    Debug.Log("Here's ur source ID : "+objectList[i].name);
+                    startPos = objectList[i].transform.localPosition;
+                    Debug.Log("Start position for this link : " + startPos);
+                }
+                else if (link.destid.Equals(objectList[i].name))
+                {
+                    Debug.Log("And here's ur dest ID : "+objectList[i].name);
+                    endPos = objectList[i].transform.localPosition;
+                    Debug.Log("Destination position for this link : " + endPos);
+                }
+                else
+                {
+                    continue;
+                }                
+            }
+            drawRelationship(50, startPos, endPos);
+        }
         ////render relationship
-        drawRelationship(50, objectList[0].transform.localPosition, objectList[1].transform.localPosition);
+        //drawRelationship(50, objectList[0].transform.localPosition, objectList[1].transform.localPosition);
     }//end of LoadGraph method
 
     private LineRenderer lineRenderer;
@@ -331,52 +180,52 @@ public class GraphLoader : MonoBehaviour
     }
 
     //instantiation of objects
-    void instantiateSphere(float posX, float posZ)
+    void instantiateSphere(float posX, float posZ, string objId)
     {
         Transform clone = Instantiate(sphere, new Vector3(posX/80, 0, posZ/80), Quaternion.identity);
-       // clone.name = "sphere-" + x /;
+        clone.name = "" + objId;
         objectList.Add(clone.gameObject);
     }
-    void instantiateCube(float posX, float posZ)
+    void instantiateCube(float posX, float posZ, string objId)
     {
         Transform clone = Instantiate(cube, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
-       // clone.name = "Cube-" + x;
+        clone.name = "" + objId;
         objectList.Add(clone.gameObject);
     }
-    void instantiateDiamond(float posX, float posZ)
+    void instantiateDiamond(float posX, float posZ, string objId)
     {
         Transform clone = Instantiate(diamond, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
-        //clone.name = "Diamond-" + x;
+        clone.name = "" + objId;
         objectList.Add(clone.gameObject);
     }
-    void instantiateHex(float posX, float posZ)
+    void instantiateHex(float posX, float posZ, string objId)
     {
         Transform clone = Instantiate(hex3d, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
-        //clone.name = "Hex-" + x;
+        clone.name = "" + objId;
         objectList.Add(clone.gameObject);
     }
-    void instantiatePyramid(float posX, float posZ)
+    void instantiatePyramid(float posX, float posZ, string objId)
     {
         Transform clone = Instantiate(pyramid, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
-        //clone.name = "Pyramid-" + x;
+        clone.name = "" + objId;
         objectList.Add(clone.gameObject);
     }
-    void instantiateArrowUp(float posX, float posZ)
+    void instantiateArrowUp(float posX, float posZ, string objId)
     {
         Transform clone = Instantiate(arrowUp, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
-       // clone.name = "ArrowUp-" + x;
+        clone.name = "" + objId;
         objectList.Add(clone.gameObject);
     }
-    void instantiateArrowDown(float posX, float posZ)
+    void instantiateArrowDown(float posX, float posZ, string objId)
     {
         Transform clone = Instantiate(arrowDown, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
-       // clone.name = "ArrowDown-" + x;
+        clone.name = "" + objId;
         objectList.Add(clone.gameObject);
     }
-    void instantiatePlus(float posX, float posZ)
+    void instantiatePlus(float posX, float posZ, string objId)
     {
         Transform clone = Instantiate(plus3d, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
-       // clone.name = "Plus-" + x;
+        clone.name = "" + objId;
         objectList.Add(clone.gameObject);
     }
 }
