@@ -5,8 +5,7 @@ using UnityEngine;
 
 //class to hold relationship info
 [Serializable]
-public class Cell_Link
-{
+public class Cell_Link{
     public string type;
     public Source source;
     public Target target;

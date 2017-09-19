@@ -75,9 +75,6 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>Library\UnityAssemblies\Mono.Cecil.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Assets\UnityPackages\JsonNet\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -95,7 +92,6 @@
     <Compile Include="Assets\_Scripts\Cell_Link.cs" />
     <Compile Include="Assets\_Scripts\Graph.cs" />
     <Compile Include="Assets\_Scripts\GraphLoader.cs" />
-    <Compile Include="Assets\_Scripts\GraphRootObject.cs" />
     <Compile Include="Assets\_Scripts\Graph_Cell.cs" />
     <Compile Include="Assets\_Scripts\Graph_Element.cs" />
     <Compile Include="Assets\_Scripts\Graph_Relationship.cs" />
