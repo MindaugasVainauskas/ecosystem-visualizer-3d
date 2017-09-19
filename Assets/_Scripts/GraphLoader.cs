@@ -56,11 +56,9 @@ public class GraphLoader : MonoBehaviour
             switch (cellType)
             {
                 case "actor":
-                    //Debug.Log(cellType);
-                    float posX = cell["position"]["x"]-600;
-                    float posZ = cell["position"]["y"];
+                    float posX = cell["position"]["x"]-650;
+                    float posZ = ((-1)*cell["position"]["y"])+700;
                     string objId = cell["elemID"];
-                   // Debug.Log("pos X = "+posX+", and pos Z = "+posZ+". Object ID -> "+objId);
 
                     string objectShape = cell["type"];
                     
@@ -96,14 +94,11 @@ public class GraphLoader : MonoBehaviour
 
         foreach (var link in relations)
         {
+            //create 2 vector3 objects to hold start and end positions for every relationship
             Vector3 startPos = new Vector3();
             Vector3 endPos = new Vector3();
-            //Debug.Log("Source ID ->"+link.sourceid);
-           // Debug.Log("Target ID ->" + link.destid);
             for (int i = 0; i < objectList.Count; i++)
             {
-               // Debug.Log("Object No."+i+" ID from object list: "+objectList[i].name);
-               // Debug.Log("Object Li." + i + " ID from source.....:" + link.sourceid);
                 if(link.sourceid.Equals(objectList[i].name))
                 {
                     Debug.Log("Here's ur source ID : "+objectList[i].name);
@@ -121,20 +116,18 @@ public class GraphLoader : MonoBehaviour
                     continue;
                 }                
             }
-            drawRelationship(50, startPos, endPos);
-        }
-        ////render relationship
-        //drawRelationship(50, objectList[0].transform.localPosition, objectList[1].transform.localPosition);
+            //render relationship
+            drawRelationship(50, startPos, endPos, 0);
+        }//end of foreach method
     }//end of LoadGraph method
 
     private LineRenderer lineRenderer;
     public Vector3[] linkPoints;
-    //public int numPoints = 50;
     private GameObject tempObj;
 
 
     //drawing the relationship between nodes
-    public void drawRelationship(int numPoints, Vector3 p0, Vector3 p1)
+    public void drawRelationship(int numPoints, Vector3 p0, Vector3 p1, int midOffset)
     {
         Vector3 midPoint = new Vector3();
         tempObj = new GameObject();
@@ -144,13 +137,11 @@ public class GraphLoader : MonoBehaviour
         linkPoints = new Vector3[numPoints];
         lineRenderer.positionCount = 50;
         midPoint = calcMidPoint(p0, p1);
-        midPoint.y += 1;
+        midPoint.y += midOffset;
         for (int i = 1; i <= numPoints; i++)
         {
             float t = i / (float)numPoints;
-           // linkPoints[i - 1] = drawStraightLine(t, p0, p1);
-            linkPoints[i-1] = drawCurvedRelation(t, p0, p1, midPoint);
-           // Debug.Log("link points: "+linkPoints[i-1]);            
+            linkPoints[i-1] = drawCurvedRelation(t, p0, p1, midPoint);    
         }
         lineRenderer.SetPositions(linkPoints);        
         Debug.Log("Mid-Point -> " + midPoint);
@@ -162,14 +153,9 @@ public class GraphLoader : MonoBehaviour
     {
         return (p0 + p1) / 2;
     }
-    //formula to draw the straight line
-    private Vector3 drawStraightLine(float t, Vector3 p0, Vector3 p1)
-    {
-        return p0 + t * (p1 - p0);
-    }
 
     //draw arched relation
-    //\mathbf {B} (t)=(1-t)^{2}\mathbf {P} _{0}+2(1-t)t\mathbf {P} _{1}+t^{2}\mathbf {P} _{2}{\mbox{ , }}0\leq t\leq 1.
+    //\mathbf {B} (t)=(1-t)^{2}\mathbf {P} _{0}+2(1-t)t\mathbf {P} _{1}+t^{2}\mathbf {P} _{2}{\mbox{ , }}0\leq t\leq 1. //taken straight from might Wikipedia
     private Vector3 drawCurvedRelation(float t, Vector3 p0, Vector3 p1, Vector3 midPoint) {
         Vector3 temp = new Vector3();
         float r1 = 1 - t;
