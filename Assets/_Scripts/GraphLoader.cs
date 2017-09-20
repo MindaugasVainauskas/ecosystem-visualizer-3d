@@ -72,16 +72,16 @@ public class GraphLoader : MonoBehaviour
                     switch (objectShape)
                     {
                         case "basic.InteractiveCircle":
-                            instantiateSphere(posX, posZ, objId);
+                            instantiateObject(sphere, posX, posZ, objId);
                             break;
                         case "basic.InteractiveRect":
-                            instantiateCube(posX, posZ, objId);
+                            instantiateObject(cube, posX, posZ, objId);
                             break;
                         case "basic.InteractiveDiamond":
-                            instantiateDiamond(posX, posZ, objId);
+                            instantiateObject(diamond, posX, posZ, objId);
                             break;
                         case "basic.InteractiveHex":
-                            instantiateHex(posX, posZ, objId);
+                            instantiateObject(hex3d, posX, posZ, objId);
                             break;
                         default:
                             break;
@@ -181,53 +181,10 @@ public class GraphLoader : MonoBehaviour
         return temp;
     }
 
-    //instantiation of objects
-    void instantiateSphere(float posX, float posZ, string objId)
-    {
-        Transform clone = Instantiate(sphere, new Vector3(posX/80, 0, posZ/80), Quaternion.identity);
+    //this is an abstract method to instantiate transform objects coming from switch statement above
+    void instantiateObject(Transform shape, float posX, float posZ, string objId) {
+        Transform clone = Instantiate(shape, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
         clone.name = "" + objId;
         objectList.Add(clone.gameObject);
-    }
-    void instantiateCube(float posX, float posZ, string objId)
-    {
-        Transform clone = Instantiate(cube, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
-        clone.name = "" + objId;
-        objectList.Add(clone.gameObject);
-    }
-    void instantiateDiamond(float posX, float posZ, string objId)
-    {
-        Transform clone = Instantiate(diamond, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
-        clone.name = "" + objId;
-        objectList.Add(clone.gameObject);
-    }
-    void instantiateHex(float posX, float posZ, string objId)
-    {
-        Transform clone = Instantiate(hex3d, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
-        clone.name = "" + objId;
-        objectList.Add(clone.gameObject);
-    }
-    void instantiatePyramid(float posX, float posZ, string objId)
-    {
-        Transform clone = Instantiate(pyramid, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
-        clone.name = "" + objId;
-        objectList.Add(clone.gameObject);
-    }
-    void instantiateArrowUp(float posX, float posZ, string objId)
-    {
-        Transform clone = Instantiate(arrowUp, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
-        clone.name = "" + objId;
-        objectList.Add(clone.gameObject);
-    }
-    void instantiateArrowDown(float posX, float posZ, string objId)
-    {
-        Transform clone = Instantiate(arrowDown, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
-        clone.name = "" + objId;
-        objectList.Add(clone.gameObject);
-    }
-    void instantiatePlus(float posX, float posZ, string objId)
-    {
-        Transform clone = Instantiate(plus3d, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
-        clone.name = "" + objId;
-        objectList.Add(clone.gameObject);
-    }
+    }  
 }
