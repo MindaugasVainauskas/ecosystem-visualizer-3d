@@ -9,6 +9,10 @@ public class GraphLoader : MonoBehaviour
     public Graph ecosystem;
    // public BezierRenderer relationLine;
     public List<GameObject> objectList;
+
+    //lists of link start points and end points
+    private List<Vector3> linkStartPos;
+    private List<Vector3> linkEndPos;
     //gets called before start. Called once per object lifetime
     void Awake()
     {
@@ -43,6 +47,9 @@ public class GraphLoader : MonoBehaviour
     {
         objectList = new List<GameObject>();
         string loadGraph = JSONReader.LoadJSon(path);
+
+        linkStartPos = new List<Vector3>();
+        linkEndPos = new List<Vector3>();
 
         JSONNode jNode = JSON.Parse(loadGraph);
 
@@ -101,15 +108,15 @@ public class GraphLoader : MonoBehaviour
             {
                 if(link.sourceid.Equals(objectList[i].name))
                 {
-                    Debug.Log("Here's ur source ID : "+objectList[i].name);
+                    //Debug.Log("Here's ur source ID : "+objectList[i].name);
                     startPos = objectList[i].transform.localPosition;
-                    Debug.Log("Start position for this link : " + startPos);
+                   // Debug.Log("Start position for this link : " + startPos);
                 }
                 else if (link.destid.Equals(objectList[i].name))
                 {
-                    Debug.Log("And here's ur dest ID : "+objectList[i].name);
+                   // Debug.Log("And here's ur dest ID : "+objectList[i].name);
                     endPos = objectList[i].transform.localPosition;
-                    Debug.Log("Destination position for this link : " + endPos);
+                   // Debug.Log("Destination position for this link : " + endPos);
                 }
                 else
                 {
@@ -117,7 +124,7 @@ public class GraphLoader : MonoBehaviour
                 }                
             }
             //render relationship
-            drawRelationship(50, startPos, endPos, 0);
+            drawRelationship(50, startPos, endPos);
         }//end of foreach method
     }//end of LoadGraph method
 
@@ -125,9 +132,8 @@ public class GraphLoader : MonoBehaviour
     public Vector3[] linkPoints;
     private GameObject tempObj;
 
-
     //drawing the relationship between nodes
-    public void drawRelationship(int numPoints, Vector3 p0, Vector3 p1, int midOffset)
+    public void drawRelationship(int numPoints, Vector3 p0, Vector3 p1)
     {
         Vector3 midPoint = new Vector3();
         tempObj = new GameObject();
@@ -137,14 +143,31 @@ public class GraphLoader : MonoBehaviour
         linkPoints = new Vector3[numPoints];
         lineRenderer.positionCount = 50;
         midPoint = calcMidPoint(p0, p1);
-        midPoint.y += midOffset;
+
+        //Debug.Log("Start position list element count is: "+linkStartPos.Count);
+        //Debug.Log("End position list count is: "+linkEndPos.Count);
+        
+        for (int i = 0; i < linkStartPos.Count; i++)
+        {
+            if (linkStartPos.Contains(p0) && linkEndPos.Contains(p1))
+            {
+                Debug.Log("Now this is true!");
+                midPoint.y += 1;
+                break;
+            }
+            
+        }       
+
+        //add positions to start and end position lists
+        linkStartPos.Add(p0);
+        linkEndPos.Add(p1);
         for (int i = 1; i <= numPoints; i++)
         {
             float t = i / (float)numPoints;
             linkPoints[i-1] = drawCurvedRelation(t, p0, p1, midPoint);    
         }
         lineRenderer.SetPositions(linkPoints);        
-        Debug.Log("Mid-Point -> " + midPoint);
+        //Debug.Log("Mid-Point -> " + midPoint);
     }
 
     //formulas to draw relations and associated with them functions ------ 
