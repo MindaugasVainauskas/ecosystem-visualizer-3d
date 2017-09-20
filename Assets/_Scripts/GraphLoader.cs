@@ -108,15 +108,11 @@ public class GraphLoader : MonoBehaviour
             {
                 if(link.sourceid.Equals(objectList[i].name))
                 {
-                    //Debug.Log("Here's ur source ID : "+objectList[i].name);
                     startPos = objectList[i].transform.localPosition;
-                   // Debug.Log("Start position for this link : " + startPos);
                 }
                 else if (link.destid.Equals(objectList[i].name))
                 {
-                   // Debug.Log("And here's ur dest ID : "+objectList[i].name);
                     endPos = objectList[i].transform.localPosition;
-                   // Debug.Log("Destination position for this link : " + endPos);
                 }
                 else
                 {
@@ -143,9 +139,6 @@ public class GraphLoader : MonoBehaviour
         linkPoints = new Vector3[numPoints];
         lineRenderer.positionCount = 50;
         midPoint = calcMidPoint(p0, p1);
-
-        //Debug.Log("Start position list element count is: "+linkStartPos.Count);
-        //Debug.Log("End position list count is: "+linkEndPos.Count);
         
         for (int i = 0; i < linkStartPos.Count; i++)
         {
