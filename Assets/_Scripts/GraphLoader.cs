@@ -183,8 +183,9 @@ public class GraphLoader : MonoBehaviour
 
     //this is an abstract method to instantiate transform objects coming from switch statement above
     void instantiateObject(Transform shape, float posX, float posZ, string objId) {
-        Transform clone = Instantiate(shape, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
+        Transform clone = Instantiate(shape, new Vector3(posX / 160, -1, posZ / 160), Quaternion.identity);
         clone.name = "" + objId;
+        clone.localScale = new Vector3(-0.5f, -0.5f, -0.5f);//this halves the size of objects
         objectList.Add(clone.gameObject);
     }  
 }
