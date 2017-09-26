@@ -64,7 +64,7 @@ public class GraphLoader : MonoBehaviour
             {
                 case "actor":
                     float posX = cell["position"]["x"]-650;
-                    float posZ = ((-1)*cell["position"]["y"])+550;
+                    float posZ = ((-1)*cell["position"]["y"])+800;
                     string objId = cell["elemID"];
 
                     string objectShape = cell["type"];
@@ -135,7 +135,7 @@ public class GraphLoader : MonoBehaviour
         tempObj = new GameObject();
         lineRenderer = tempObj.AddComponent<LineRenderer>();
         lineRenderer.material.color = Color.green;
-        lineRenderer.widthMultiplier = 0.1f;
+        lineRenderer.widthMultiplier = 0.03f;
         linkPoints = new Vector3[numPoints];
         lineRenderer.positionCount = 50;
         midPoint = calcMidPoint(p0, p1);
@@ -144,8 +144,7 @@ public class GraphLoader : MonoBehaviour
         {
             if (linkStartPos.Contains(p0) && linkEndPos.Contains(p1))
             {
-                Debug.Log("Now this is true!");
-                midPoint.y += 1;
+                midPoint.y += 0.25f; //adjusted height of midpoint due to smaller dimentions
                 break;
             }
             
@@ -183,9 +182,9 @@ public class GraphLoader : MonoBehaviour
 
     //this is an abstract method to instantiate transform objects coming from switch statement above
     void instantiateObject(Transform shape, float posX, float posZ, string objId) {
-        Transform clone = Instantiate(shape, new Vector3(posX / 200, -1, posZ / 200), Quaternion.identity);
+        Transform clone = Instantiate(shape, new Vector3(posX / 500, -0.35f, posZ / 520), Quaternion.identity);
         clone.name = "" + objId;
-        clone.localScale = new Vector3(-0.7f, -0.7f, -0.7f);//this halves the size of objects
+        clone.localScale -= new Vector3(0.8f, 0.8f, 0.8f);//this halves the size of objects
         objectList.Add(clone.gameObject);
     }  
 }
