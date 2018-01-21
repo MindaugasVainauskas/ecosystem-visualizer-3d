@@ -131,10 +131,10 @@ public class GraphLoader : MonoBehaviour
     //drawing the relationship between nodes
     public void drawRelationship(int numPoints, Vector3 p0, Vector3 p1)
     {
+        //If colours are predetermined by relationship type I will need a list of colour equivalents for every type
         //Following takes a Hex string colour value from JSON file and applies it to the new relation.
         Color myColor = new Color();
         ColorUtility.TryParseHtmlString("#8a8a8a", out myColor);
-
         Vector3 midPoint = new Vector3();
         tempObj = new GameObject();
         lineRenderer = tempObj.AddComponent<LineRenderer>();
