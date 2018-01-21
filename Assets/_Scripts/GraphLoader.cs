@@ -131,10 +131,14 @@ public class GraphLoader : MonoBehaviour
     //drawing the relationship between nodes
     public void drawRelationship(int numPoints, Vector3 p0, Vector3 p1)
     {
+        //Following takes a Hex string colour value from JSON file and applies it to the new relation.
+        Color myColor = new Color();
+        ColorUtility.TryParseHtmlString("#8a8a8a", out myColor);
+
         Vector3 midPoint = new Vector3();
         tempObj = new GameObject();
         lineRenderer = tempObj.AddComponent<LineRenderer>();
-        lineRenderer.material.color = Color.green;
+        lineRenderer.material.color = myColor;
         lineRenderer.widthMultiplier = 0.03f;
         linkPoints = new Vector3[numPoints];
         lineRenderer.positionCount = 50;
