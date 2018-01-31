@@ -13,6 +13,9 @@ public class GraphLoader : MonoBehaviour
     //lists of link start points and end points
     private List<Vector3> linkStartPos;
     private List<Vector3> linkEndPos;
+
+    //list to hold relationship colours
+    private List<string> relColours;
     //gets called before start. Called once per object lifetime
     void Awake()
     {
@@ -41,7 +44,7 @@ public class GraphLoader : MonoBehaviour
     public Transform arrowUp;
     public Transform arrowDown;
     public Transform plus3d;
-    
+
     //method to load the graph from json file
     public void LoadGraph(string path)
     {
@@ -51,10 +54,13 @@ public class GraphLoader : MonoBehaviour
         linkStartPos = new List<Vector3>();
         linkEndPos = new List<Vector3>();
 
+        relColours = new List<string>(); //instantiate a list for storing colour fills from JSON
+
         JSONNode jNode = JSON.Parse(loadGraph);
 
         //split JSON node into JSON array.
         JSONArray cellArray = (JSONArray)jNode["graph"]["cells"];
+        
 
         foreach (JSONNode cell in cellArray)
         {
@@ -87,7 +93,14 @@ public class GraphLoader : MonoBehaviour
                             break;
                     }                    
                     break;
-                    
+
+                //If celltype is relationship then add its fill colour to the list of colours.
+                case "relationship":
+                    string relCol = cell["attrs"][".connection"]["stroke"];
+                    relColours.Add(relCol);
+                    Debug.Log(relCol); //need to check that I'm pulling these out correctly.
+                    break;
+
                 default:
                     break;
             }//end of switch(cellType)
@@ -184,7 +197,7 @@ public class GraphLoader : MonoBehaviour
         return temp;
     }
 
-    //this is an abstract method to instantiate transform objects coming from switch statement above
+    //this is an reusable method to instantiate transform objects from prefabs.
     void instantiateObject(Transform shape, float posX, float posZ, string objId) {
         Transform clone = Instantiate(shape, new Vector3(posX / 500, -0.35f, posZ / 520), Quaternion.identity);
         clone.name = "" + objId;
