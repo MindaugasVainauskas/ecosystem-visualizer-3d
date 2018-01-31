@@ -133,7 +133,8 @@ public class GraphLoader : MonoBehaviour
                 }                
             }
             //render relationship with colour set in hex(for now)
-            drawRelationship(50, startPos, endPos, "#8a8a8a");
+            //later colour will be pulled from relColours colour list created earlier in application.
+            drawRelationship(50, startPos, endPos, "#FF91A4");
         }//end of foreach method
     }//end of LoadGraph method
 
