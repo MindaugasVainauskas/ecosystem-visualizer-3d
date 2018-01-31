@@ -98,7 +98,6 @@ public class GraphLoader : MonoBehaviour
                 case "relationship":
                     string relCol = cell["attrs"][".connection"]["stroke"];
                     relColours.Add(relCol);
-                    Debug.Log(relCol); //need to check that I'm pulling these out correctly.
                     break;
 
                 default:
