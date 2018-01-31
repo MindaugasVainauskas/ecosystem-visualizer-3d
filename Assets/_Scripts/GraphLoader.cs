@@ -119,8 +119,8 @@ public class GraphLoader : MonoBehaviour
                     continue;
                 }                
             }
-            //render relationship
-            drawRelationship(50, startPos, endPos);
+            //render relationship with colour set in hex(for now)
+            drawRelationship(50, startPos, endPos, "#8a8a8a");
         }//end of foreach method
     }//end of LoadGraph method
 
@@ -129,12 +129,12 @@ public class GraphLoader : MonoBehaviour
     private GameObject tempObj;
 
     //drawing the relationship between nodes
-    public void drawRelationship(int numPoints, Vector3 p0, Vector3 p1)
+    public void drawRelationship(int numPoints, Vector3 p0, Vector3 p1, string relColour)
     {
         //If colours are predetermined by relationship type I will need a list of colour equivalents for every type
         //Following takes a Hex string colour value from JSON file and applies it to the new relation.
         Color myColor = new Color();
-        ColorUtility.TryParseHtmlString("#8a8a8a", out myColor);
+        ColorUtility.TryParseHtmlString(relColour, out myColor);
         Vector3 midPoint = new Vector3();
         tempObj = new GameObject();
         lineRenderer = tempObj.AddComponent<LineRenderer>();
