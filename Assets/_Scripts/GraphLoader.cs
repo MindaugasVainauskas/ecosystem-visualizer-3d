@@ -19,8 +19,8 @@ public class GraphLoader : MonoBehaviour
     //gets called before start. Called once per object lifetime
     void Awake()
     {
-        //LoadGraph("Ecosystem4.json");
-        LoadGraph("MoreComplex.json");
+        LoadGraph("Ecosystem4.json");
+       // LoadGraph("MoreComplex.json");
         //LoadGraph("Simple.json");
     }
 
@@ -60,7 +60,7 @@ public class GraphLoader : MonoBehaviour
         JSONNode jNode = JSON.Parse(loadGraph);
 
         //split JSON node into JSON array.
-        JSONArray cellArray = (JSONArray)jNode["graph"]["cells"];
+        JSONArray cellArray = (JSONArray)jNode["cells"];
         
 
         foreach (JSONNode cell in cellArray)
@@ -72,7 +72,7 @@ public class GraphLoader : MonoBehaviour
                 case "actor":
                     float posX = cell["position"]["x"]-650;
                     float posZ = ((-1)*cell["position"]["y"])+800;
-                    string objId = cell["elemID"];
+                    string objId = cell["id"];
 
                     string objectShape = cell["type"];
                     
