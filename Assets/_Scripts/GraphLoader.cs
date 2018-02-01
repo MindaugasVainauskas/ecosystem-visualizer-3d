@@ -14,9 +14,7 @@ public class GraphLoader : MonoBehaviour
     //lists of link start points and end points
     private List<Vector3> linkStartPos;
     private List<Vector3> linkEndPos;
-
-    //list to hold relationship colours
-    private List<string> relColours;
+    
     //gets called before start. Called once per object lifetime
     void Awake()
     {
@@ -57,8 +55,6 @@ public class GraphLoader : MonoBehaviour
         linkEndPos = new List<Vector3>();
 
         relations = new List<Cell_Link>();
-
-        relColours = new List<string>(); //instantiate a list for storing colour fills from JSON
 
         JSONNode jNode = JSON.Parse(loadGraph);
 
@@ -104,10 +100,11 @@ public class GraphLoader : MonoBehaviour
                     string sourceId = cell["source"]["id"];
                     string targetId = cell["target"]["id"];
                     string relCol = cell["attrs"][".connection"]["stroke"];
-                    Debug.Log(id+", "+sourceId+", "+targetId+", "+relCol);
+                    //Add the variables of a relationship into a Cell_Link object.
                     Cell_Link tempLink = new Cell_Link(id, sourceId, targetId, relCol);
+
+                    //Add the relationship to relations list.
                     relations.Add(tempLink);
-                    relColours.Add(relCol);
                     break;
 
                 default:
@@ -184,8 +181,7 @@ public class GraphLoader : MonoBehaviour
             float t = i / (float)numPoints;
             linkPoints[i-1] = drawCurvedRelation(t, p0, p1, midPoint);    
         }
-        lineRenderer.SetPositions(linkPoints);        
-        //Debug.Log("Mid-Point -> " + midPoint);
+        lineRenderer.SetPositions(linkPoints);   
     }
 
     //formulas to draw relations and associated with them functions ------ 
