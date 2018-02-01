@@ -5,9 +5,6 @@
 /[Bb]uilds/
 /Assets/AssetStoreTools*
 
-# Unneeded Folder
-/UWP
-
 # Visual Studio 2015 cache directory
 /.vs/
 
