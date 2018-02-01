@@ -9,17 +9,9 @@ public class GraphLoader : MonoBehaviour
     public Graph ecosystem;
    // public BezierRenderer relationLine;
     public List<GameObject> objectList;
-
-    //lists of link start points and end points
-    private List<Vector3> linkStartPos;
-    private List<Vector3> linkEndPos;
-
-    //list to hold relationship colours
-    private List<string> relColours;
     //gets called before start. Called once per object lifetime
     void Awake()
     {
-        //LoadGraph("Ecosystem4.json");
         LoadGraph("MoreComplex.json");
         //LoadGraph("Simple.json");
     }
@@ -45,23 +37,17 @@ public class GraphLoader : MonoBehaviour
     public Transform arrowUp;
     public Transform arrowDown;
     public Transform plus3d;
-
+    
     //method to load the graph from json file
     public void LoadGraph(string path)
     {
         objectList = new List<GameObject>();
         string loadGraph = JSONReader.LoadJSon(path);
 
-        linkStartPos = new List<Vector3>();
-        linkEndPos = new List<Vector3>();
-
-        relColours = new List<string>(); //instantiate a list for storing colour fills from JSON
-
         JSONNode jNode = JSON.Parse(loadGraph);
 
         //split JSON node into JSON array.
         JSONArray cellArray = (JSONArray)jNode["graph"]["cells"];
-        
 
         foreach (JSONNode cell in cellArray)
         {
@@ -70,37 +56,33 @@ public class GraphLoader : MonoBehaviour
             switch (cellType)
             {
                 case "actor":
-                    float posX = cell["position"]["x"]-650;
-                    float posZ = ((-1)*cell["position"]["y"])+800;
+                    //Debug.Log(cellType);
+                    float posX = cell["position"]["x"]-600;
+                    float posZ = cell["position"]["y"];
                     string objId = cell["elemID"];
+                   // Debug.Log("pos X = "+posX+", and pos Z = "+posZ+". Object ID -> "+objId);
 
                     string objectShape = cell["type"];
                     
                     switch (objectShape)
                     {
                         case "basic.InteractiveCircle":
-                            instantiateObject(sphere, posX, posZ, objId);
+                            instantiateSphere(posX, posZ, objId);
                             break;
                         case "basic.InteractiveRect":
-                            instantiateObject(cube, posX, posZ, objId);
+                            instantiateCube(posX, posZ, objId);
                             break;
                         case "basic.InteractiveDiamond":
-                            instantiateObject(diamond, posX, posZ, objId);
+                            instantiateDiamond(posX, posZ, objId);
                             break;
                         case "basic.InteractiveHex":
-                            instantiateObject(hex3d, posX, posZ, objId);
+                            instantiateHex(posX, posZ, objId);
                             break;
                         default:
                             break;
                     }                    
                     break;
-
-                //If celltype is relationship then add its fill colour to the list of colours.
-                case "relationship":
-                    string relCol = cell["attrs"][".connection"]["stroke"];
-                    relColours.Add(relCol);
-                    break;
-
+                    
                 default:
                     break;
             }//end of switch(cellType)
@@ -114,70 +96,64 @@ public class GraphLoader : MonoBehaviour
 
         foreach (var link in relations)
         {
-            //create 2 vector3 objects to hold start and end positions for every relationship
             Vector3 startPos = new Vector3();
             Vector3 endPos = new Vector3();
+            //Debug.Log("Source ID ->"+link.sourceid);
+           // Debug.Log("Target ID ->" + link.destid);
             for (int i = 0; i < objectList.Count; i++)
             {
+               // Debug.Log("Object No."+i+" ID from object list: "+objectList[i].name);
+               // Debug.Log("Object Li." + i + " ID from source.....:" + link.sourceid);
                 if(link.sourceid.Equals(objectList[i].name))
                 {
+                    Debug.Log("Here's ur source ID : "+objectList[i].name);
                     startPos = objectList[i].transform.localPosition;
+                    Debug.Log("Start position for this link : " + startPos);
                 }
                 else if (link.destid.Equals(objectList[i].name))
                 {
+                    Debug.Log("And here's ur dest ID : "+objectList[i].name);
                     endPos = objectList[i].transform.localPosition;
+                    Debug.Log("Destination position for this link : " + endPos);
                 }
                 else
                 {
                     continue;
                 }                
             }
-            //render relationship with colour set in hex(for now)
-            //later colour will be pulled from relColours colour list created earlier in application.
-            drawRelationship(50, startPos, endPos, "#FF91A4");
-        }//end of foreach method
+            drawRelationship(50, startPos, endPos);
+        }
+        ////render relationship
+        //drawRelationship(50, objectList[0].transform.localPosition, objectList[1].transform.localPosition);
     }//end of LoadGraph method
 
     private LineRenderer lineRenderer;
     public Vector3[] linkPoints;
+    //public int numPoints = 50;
     private GameObject tempObj;
 
+
     //drawing the relationship between nodes
-    public void drawRelationship(int numPoints, Vector3 p0, Vector3 p1, string relColour)
+    public void drawRelationship(int numPoints, Vector3 p0, Vector3 p1)
     {
-        //If colours are predetermined by relationship type I will need a list of colour equivalents for every type
-        //Following takes a Hex string colour value from JSON file and applies it to the new relation.
-        Color myColor = new Color();
-        ColorUtility.TryParseHtmlString(relColour, out myColor);
         Vector3 midPoint = new Vector3();
         tempObj = new GameObject();
         lineRenderer = tempObj.AddComponent<LineRenderer>();
-        lineRenderer.material.color = myColor;
-        lineRenderer.widthMultiplier = 0.03f;
+        lineRenderer.material.color = Color.green;
+        lineRenderer.widthMultiplier = 0.1f;
         linkPoints = new Vector3[numPoints];
         lineRenderer.positionCount = 50;
         midPoint = calcMidPoint(p0, p1);
-        
-        for (int i = 0; i < linkStartPos.Count; i++)
-        {
-            if (linkStartPos.Contains(p0) && linkEndPos.Contains(p1))
-            {
-                midPoint.y += 0.25f; //adjusted height of midpoint due to smaller dimentions
-                break;
-            }
-            
-        }       
-
-        //add positions to start and end position lists
-        linkStartPos.Add(p0);
-        linkEndPos.Add(p1);
+        midPoint.y += 1;
         for (int i = 1; i <= numPoints; i++)
         {
             float t = i / (float)numPoints;
-            linkPoints[i-1] = drawCurvedRelation(t, p0, p1, midPoint);    
+           // linkPoints[i - 1] = drawStraightLine(t, p0, p1);
+            linkPoints[i-1] = drawCurvedRelation(t, p0, p1, midPoint);
+           // Debug.Log("link points: "+linkPoints[i-1]);            
         }
         lineRenderer.SetPositions(linkPoints);        
-        //Debug.Log("Mid-Point -> " + midPoint);
+        Debug.Log("Mid-Point -> " + midPoint);
     }
 
     //formulas to draw relations and associated with them functions ------ 
@@ -186,9 +162,14 @@ public class GraphLoader : MonoBehaviour
     {
         return (p0 + p1) / 2;
     }
+    //formula to draw the straight line
+    private Vector3 drawStraightLine(float t, Vector3 p0, Vector3 p1)
+    {
+        return p0 + t * (p1 - p0);
+    }
 
     //draw arched relation
-    //\mathbf {B} (t)=(1-t)^{2}\mathbf {P} _{0}+2(1-t)t\mathbf {P} _{1}+t^{2}\mathbf {P} _{2}{\mbox{ , }}0\leq t\leq 1. //taken straight from might Wikipedia
+    //\mathbf {B} (t)=(1-t)^{2}\mathbf {P} _{0}+2(1-t)t\mathbf {P} _{1}+t^{2}\mathbf {P} _{2}{\mbox{ , }}0\leq t\leq 1.
     private Vector3 drawCurvedRelation(float t, Vector3 p0, Vector3 p1, Vector3 midPoint) {
         Vector3 temp = new Vector3();
         float r1 = 1 - t;
@@ -198,11 +179,53 @@ public class GraphLoader : MonoBehaviour
         return temp;
     }
 
-    //this is an reusable method to instantiate transform objects from prefabs.
-    void instantiateObject(Transform shape, float posX, float posZ, string objId) {
-        Transform clone = Instantiate(shape, new Vector3(posX / 500, -0.35f, posZ / 520), Quaternion.identity);
+    //instantiation of objects
+    void instantiateSphere(float posX, float posZ, string objId)
+    {
+        Transform clone = Instantiate(sphere, new Vector3(posX/80, 0, posZ/80), Quaternion.identity);
         clone.name = "" + objId;
-        clone.localScale -= new Vector3(0.8f, 0.8f, 0.8f);//this halves the size of objects
         objectList.Add(clone.gameObject);
-    }  
+    }
+    void instantiateCube(float posX, float posZ, string objId)
+    {
+        Transform clone = Instantiate(cube, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
+        clone.name = "" + objId;
+        objectList.Add(clone.gameObject);
+    }
+    void instantiateDiamond(float posX, float posZ, string objId)
+    {
+        Transform clone = Instantiate(diamond, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
+        clone.name = "" + objId;
+        objectList.Add(clone.gameObject);
+    }
+    void instantiateHex(float posX, float posZ, string objId)
+    {
+        Transform clone = Instantiate(hex3d, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
+        clone.name = "" + objId;
+        objectList.Add(clone.gameObject);
+    }
+    void instantiatePyramid(float posX, float posZ, string objId)
+    {
+        Transform clone = Instantiate(pyramid, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
+        clone.name = "" + objId;
+        objectList.Add(clone.gameObject);
+    }
+    void instantiateArrowUp(float posX, float posZ, string objId)
+    {
+        Transform clone = Instantiate(arrowUp, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
+        clone.name = "" + objId;
+        objectList.Add(clone.gameObject);
+    }
+    void instantiateArrowDown(float posX, float posZ, string objId)
+    {
+        Transform clone = Instantiate(arrowDown, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
+        clone.name = "" + objId;
+        objectList.Add(clone.gameObject);
+    }
+    void instantiatePlus(float posX, float posZ, string objId)
+    {
+        Transform clone = Instantiate(plus3d, new Vector3(posX / 80, 0, posZ / 80), Quaternion.identity);
+        clone.name = "" + objId;
+        objectList.Add(clone.gameObject);
+    }
 }
