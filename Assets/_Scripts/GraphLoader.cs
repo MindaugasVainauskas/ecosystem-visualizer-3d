@@ -19,6 +19,7 @@ public class GraphLoader : MonoBehaviour
     //gets called before start. Called once per object lifetime
     void Awake()
     {
+        //LoadGraph("Ecosystem4.json");
         LoadGraph("MoreComplex.json");
         //LoadGraph("Simple.json");
     }
