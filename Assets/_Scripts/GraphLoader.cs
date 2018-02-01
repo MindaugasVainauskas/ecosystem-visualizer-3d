@@ -13,9 +13,13 @@ public class GraphLoader : MonoBehaviour
     //lists of link start points and end points
     private List<Vector3> linkStartPos;
     private List<Vector3> linkEndPos;
+
+    //list to hold relationship colours
+    private List<string> relColours;
     //gets called before start. Called once per object lifetime
     void Awake()
     {
+        //LoadGraph("Ecosystem4.json");
         LoadGraph("MoreComplex.json");
         //LoadGraph("Simple.json");
     }
@@ -41,7 +45,7 @@ public class GraphLoader : MonoBehaviour
     public Transform arrowUp;
     public Transform arrowDown;
     public Transform plus3d;
-    
+
     //method to load the graph from json file
     public void LoadGraph(string path)
     {
@@ -51,10 +55,13 @@ public class GraphLoader : MonoBehaviour
         linkStartPos = new List<Vector3>();
         linkEndPos = new List<Vector3>();
 
+        relColours = new List<string>(); //instantiate a list for storing colour fills from JSON
+
         JSONNode jNode = JSON.Parse(loadGraph);
 
         //split JSON node into JSON array.
         JSONArray cellArray = (JSONArray)jNode["graph"]["cells"];
+        
 
         foreach (JSONNode cell in cellArray)
         {
@@ -87,7 +94,13 @@ public class GraphLoader : MonoBehaviour
                             break;
                     }                    
                     break;
-                    
+
+                //If celltype is relationship then add its fill colour to the list of colours.
+                case "relationship":
+                    string relCol = cell["attrs"][".connection"]["stroke"];
+                    relColours.Add(relCol);
+                    break;
+
                 default:
                     break;
             }//end of switch(cellType)
@@ -119,8 +132,9 @@ public class GraphLoader : MonoBehaviour
                     continue;
                 }                
             }
-            //render relationship
-            drawRelationship(50, startPos, endPos);
+            //render relationship with colour set in hex(for now)
+            //later colour will be pulled from relColours colour list created earlier in application.
+            drawRelationship(50, startPos, endPos, "#FF91A4");
         }//end of foreach method
     }//end of LoadGraph method
 
@@ -129,12 +143,16 @@ public class GraphLoader : MonoBehaviour
     private GameObject tempObj;
 
     //drawing the relationship between nodes
-    public void drawRelationship(int numPoints, Vector3 p0, Vector3 p1)
+    public void drawRelationship(int numPoints, Vector3 p0, Vector3 p1, string relColour)
     {
+        //If colours are predetermined by relationship type I will need a list of colour equivalents for every type
+        //Following takes a Hex string colour value from JSON file and applies it to the new relation.
+        Color myColor = new Color();
+        ColorUtility.TryParseHtmlString(relColour, out myColor);
         Vector3 midPoint = new Vector3();
         tempObj = new GameObject();
         lineRenderer = tempObj.AddComponent<LineRenderer>();
-        lineRenderer.material.color = Color.green;
+        lineRenderer.material.color = myColor;
         lineRenderer.widthMultiplier = 0.03f;
         linkPoints = new Vector3[numPoints];
         lineRenderer.positionCount = 50;
@@ -180,7 +198,7 @@ public class GraphLoader : MonoBehaviour
         return temp;
     }
 
-    //this is an abstract method to instantiate transform objects coming from switch statement above
+    //this is an reusable method to instantiate transform objects from prefabs.
     void instantiateObject(Transform shape, float posX, float posZ, string objId) {
         Transform clone = Instantiate(shape, new Vector3(posX / 500, -0.35f, posZ / 520), Quaternion.identity);
         clone.name = "" + objId;
