@@ -141,8 +141,7 @@ public class GraphLoader : MonoBehaviour
                     continue;
                 }                
             }
-            //render relationship with colour set in hex(for now)
-            //later colour will be pulled from relColours colour list created earlier in application.
+            //render relationship with colour pulled from relationship list.
             drawRelationship(50, startPos, endPos, link.relCol);
         }//end of foreach method
     }//end of LoadGraph method
