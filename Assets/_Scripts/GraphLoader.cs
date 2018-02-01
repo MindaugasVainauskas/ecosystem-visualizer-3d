@@ -9,6 +9,7 @@ public class GraphLoader : MonoBehaviour
     public Graph ecosystem;
    // public BezierRenderer relationLine;
     public List<GameObject> objectList;
+    public List<Cell_Link> relations;
 
     //lists of link start points and end points
     private List<Vector3> linkStartPos;
@@ -19,8 +20,8 @@ public class GraphLoader : MonoBehaviour
     //gets called before start. Called once per object lifetime
     void Awake()
     {
-        //LoadGraph("Ecosystem4.json");
-        LoadGraph("MoreComplex.json");
+        LoadGraph("Ecosystem4.json");
+       // LoadGraph("MoreComplex.json");
         //LoadGraph("Simple.json");
     }
 
@@ -55,12 +56,14 @@ public class GraphLoader : MonoBehaviour
         linkStartPos = new List<Vector3>();
         linkEndPos = new List<Vector3>();
 
+        relations = new List<Cell_Link>();
+
         relColours = new List<string>(); //instantiate a list for storing colour fills from JSON
 
         JSONNode jNode = JSON.Parse(loadGraph);
 
         //split JSON node into JSON array.
-        JSONArray cellArray = (JSONArray)jNode["graph"]["cells"];
+        JSONArray cellArray = (JSONArray)jNode["cells"];
         
 
         foreach (JSONNode cell in cellArray)
@@ -72,7 +75,7 @@ public class GraphLoader : MonoBehaviour
                 case "actor":
                     float posX = cell["position"]["x"]-650;
                     float posZ = ((-1)*cell["position"]["y"])+800;
-                    string objId = cell["elemID"];
+                    string objId = cell["id"];
 
                     string objectShape = cell["type"];
                     
@@ -97,7 +100,13 @@ public class GraphLoader : MonoBehaviour
 
                 //If celltype is relationship then add its fill colour to the list of colours.
                 case "relationship":
+                    string id = cell["id"];
+                    string sourceId = cell["source"]["id"];
+                    string targetId = cell["target"]["id"];
                     string relCol = cell["attrs"][".connection"]["stroke"];
+                    Debug.Log(id+", "+sourceId+", "+targetId+", "+relCol);
+                    Cell_Link tempLink = new Cell_Link(id, sourceId, targetId, relCol);
+                    relations.Add(tempLink);
                     relColours.Add(relCol);
                     break;
 
@@ -110,7 +119,7 @@ public class GraphLoader : MonoBehaviour
         ecosystem = JsonUtility.FromJson<Graph>(loadGraph);
 
         //var elements = ecosystem.graphElements;
-        var relations = ecosystem.graphRelationships;
+       // var relations = ecosystem.graphRelationships;
 
         foreach (var link in relations)
         {
@@ -119,11 +128,11 @@ public class GraphLoader : MonoBehaviour
             Vector3 endPos = new Vector3();
             for (int i = 0; i < objectList.Count; i++)
             {
-                if(link.sourceid.Equals(objectList[i].name))
+                if(link.sourceId.Equals(objectList[i].name))
                 {
                     startPos = objectList[i].transform.localPosition;
                 }
-                else if (link.destid.Equals(objectList[i].name))
+                else if (link.targetId.Equals(objectList[i].name))
                 {
                     endPos = objectList[i].transform.localPosition;
                 }
@@ -132,9 +141,8 @@ public class GraphLoader : MonoBehaviour
                     continue;
                 }                
             }
-            //render relationship with colour set in hex(for now)
-            //later colour will be pulled from relColours colour list created earlier in application.
-            drawRelationship(50, startPos, endPos, "#FF91A4");
+            //render relationship with colour pulled from relationship list.
+            drawRelationship(50, startPos, endPos, link.relCol);
         }//end of foreach method
     }//end of LoadGraph method
 
