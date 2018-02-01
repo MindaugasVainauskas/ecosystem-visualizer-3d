@@ -14,6 +14,7 @@ public class GraphLoader : MonoBehaviour
     //lists of link start points and end points
     private List<Vector3> linkStartPos;
     private List<Vector3> linkEndPos;
+    private float _graphScale = 0.87f;
     
     //gets called before start. Called once per object lifetime
     void Awake()
@@ -158,7 +159,7 @@ public class GraphLoader : MonoBehaviour
         tempObj = new GameObject();
         lineRenderer = tempObj.AddComponent<LineRenderer>();
         lineRenderer.material.color = myColor;
-        lineRenderer.widthMultiplier = 0.03f;
+        lineRenderer.widthMultiplier = _graphScale/30; //relationship width is a margin of the scale of the graph objects.
         linkPoints = new Vector3[numPoints];
         lineRenderer.positionCount = 50;
         midPoint = calcMidPoint(p0, p1);
@@ -167,7 +168,7 @@ public class GraphLoader : MonoBehaviour
         {
             if (linkStartPos.Contains(p0) && linkEndPos.Contains(p1))
             {
-                midPoint.y += 0.25f; //adjusted height of midpoint due to smaller dimentions
+                midPoint.y += _graphScale/4.5f; //adjusted height of midpoint due to smaller dimensions
                 break;
             }
             
@@ -206,7 +207,7 @@ public class GraphLoader : MonoBehaviour
     void instantiateObject(Transform shape, float posX, float posZ, string objId) {
         Transform clone = Instantiate(shape, new Vector3(posX / 500, -0.35f, posZ / 520), Quaternion.identity);
         clone.name = "" + objId;
-        clone.localScale -= new Vector3(0.8f, 0.8f, 0.8f);//this halves the size of objects
+        clone.localScale -= new Vector3(_graphScale, _graphScale, _graphScale);//Size of the graph object is decided by a given scale.
         objectList.Add(clone.gameObject);
     }  
 }
