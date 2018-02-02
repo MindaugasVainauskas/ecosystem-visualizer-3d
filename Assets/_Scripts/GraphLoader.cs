@@ -70,8 +70,8 @@ public class GraphLoader : MonoBehaviour
             switch (cellType)
             {
                 case "actor":
-                    float posX = cell["position"]["x"]-650;
-                    float posZ = ((-1)*cell["position"]["y"])+800;
+                    float posX = cell["position"]["x"]-750;
+                    float posZ = ((-1)*cell["position"]["y"])+750;
                     string objId = cell["id"];
 
                     string objectShape = cell["type"];
@@ -205,7 +205,8 @@ public class GraphLoader : MonoBehaviour
 
     //this is an reusable method to instantiate transform objects from prefabs.
     void instantiateObject(Transform shape, float posX, float posZ, string objId) {
-        Transform clone = Instantiate(shape, new Vector3(posX / 500, -0.35f, posZ / 520), Quaternion.identity);
+        float scale = _graphScale / 0.002f;
+        Transform clone = Instantiate(shape, new Vector3(posX / scale, -0.35f, posZ / scale), Quaternion.identity);
         clone.name = "" + objId;
         clone.localScale -= new Vector3(_graphScale, _graphScale, _graphScale);//Size of the graph object is decided by a given scale.
         objectList.Add(clone.gameObject);
