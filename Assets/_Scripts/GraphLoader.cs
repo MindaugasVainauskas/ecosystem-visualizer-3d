@@ -14,7 +14,7 @@ public class GraphLoader : MonoBehaviour
     //lists of link start points and end points
     private List<Vector3> linkStartPos;
     private List<Vector3> linkEndPos;
-    private float _graphScale = 0.87f;
+    private float _graphScale = 1f;
     
     //gets called before start. Called once per object lifetime
     void Awake()
@@ -114,7 +114,7 @@ public class GraphLoader : MonoBehaviour
         }//end of forEach(JSONNode cell in cellArray)
 
         ////this works on second and third parts of graph
-        ecosystem = JsonUtility.FromJson<Graph>(loadGraph);
+       // ecosystem = JsonUtility.FromJson<Graph>(loadGraph);
 
         //var elements = ecosystem.graphElements;
        // var relations = ecosystem.graphRelationships;
@@ -205,7 +205,7 @@ public class GraphLoader : MonoBehaviour
 
     //this is an reusable method to instantiate transform objects from prefabs.
     void instantiateObject(Transform shape, float posX, float posZ, string objId) {
-        float scale = _graphScale / 0.002f;
+        float scale = (_graphScale / 2f)*200;
         Transform clone = Instantiate(shape, new Vector3(posX / scale, -0.35f, posZ / scale), Quaternion.identity);
         clone.name = "" + objId;
         clone.localScale -= new Vector3(_graphScale, _graphScale, _graphScale);//Size of the graph object is decided by a given scale.
