@@ -14,8 +14,11 @@ public class GraphLoader : MonoBehaviour
     //lists of link start points and end points
     private List<Vector3> linkStartPos;
     private List<Vector3> linkEndPos;
-    private float _graphScale = 1f;
-    
+    private float _graphScale = 5;
+    public GameObject ParentObject; //Parent object holding graph objects inside it.
+    private Vector3 startPos;
+    private Vector3 endPos;
+
     //gets called before start. Called once per object lifetime
     void Awake()
     {
@@ -49,6 +52,8 @@ public class GraphLoader : MonoBehaviour
     //method to load the graph from json file
     public void LoadGraph(string path)
     {
+        ParentObject = GameObject.Find("ParentObject");
+        ParentObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f); //Local scale of parent object
         objectList = new List<GameObject>();
         string loadGraph = JSONReader.LoadJSon(path);
 
@@ -113,26 +118,27 @@ public class GraphLoader : MonoBehaviour
             }//end of switch(cellType)
         }//end of forEach(JSONNode cell in cellArray)
 
-        ////this works on second and third parts of graph
-       // ecosystem = JsonUtility.FromJson<Graph>(loadGraph);
-
-        //var elements = ecosystem.graphElements;
-       // var relations = ecosystem.graphRelationships;
-
         foreach (var link in relations)
         {
             //create 2 vector3 objects to hold start and end positions for every relationship
-            Vector3 startPos = new Vector3();
-            Vector3 endPos = new Vector3();
+            startPos = new Vector3();
+            endPos = new Vector3();
+
+            GameObject StartObj = new GameObject();
+            GameObject EndObj = new GameObject();
             for (int i = 0; i < objectList.Count; i++)
             {
                 if(link.sourceId.Equals(objectList[i].name))
                 {
                     startPos = objectList[i].transform.localPosition;
+                    StartObj = objectList[i];
+                    StartObj.transform.parent = objectList[i].transform;
                 }
                 else if (link.targetId.Equals(objectList[i].name))
                 {
                     endPos = objectList[i].transform.localPosition;
+                    EndObj = objectList[i];
+                    EndObj.transform.parent = objectList[i].transform;
                 }
                 else
                 {
@@ -140,7 +146,8 @@ public class GraphLoader : MonoBehaviour
                 }                
             }
             //render relationship with colour pulled from relationship list.
-            drawRelationship(50, startPos, endPos, link.relCol);
+            //drawRelationship(50, startPos, endPos, link.relCol);
+            drawRelationship(StartObj, EndObj, link.relCol);
         }//end of foreach method
     }//end of LoadGraph method
 
@@ -149,17 +156,25 @@ public class GraphLoader : MonoBehaviour
     private GameObject tempObj;
 
     //drawing the relationship between nodes
-    public void drawRelationship(int numPoints, Vector3 p0, Vector3 p1, string relColour)
-    {
-        //If colours are predetermined by relationship type I will need a list of colour equivalents for every type
+    //public void drawRelationship(int numPoints, Vector3 p0, Vector3 p1, string relColour)
+    //{
+      public void drawRelationship(GameObject sObj, GameObject eObj, string relColour)
+      {
+        int numPoints = 50;
         //Following takes a Hex string colour value from JSON file and applies it to the new relation.
         Color myColor = new Color();
         ColorUtility.TryParseHtmlString(relColour, out myColor);
+
+        Vector3 p0 = sObj.transform.localPosition;
+        Vector3 p1 = eObj.transform.localPosition;
+        Debug.Log("Start pos - "+p0);
+        Debug.Log("End pos - "+p1);
         Vector3 midPoint = new Vector3();
         tempObj = new GameObject();
-        lineRenderer = tempObj.AddComponent<LineRenderer>();
+        tempObj.transform.parent = ParentObject.transform; //add as a child of parent node.
+        lineRenderer = tempObj.AddComponent<LineRenderer>();        
         lineRenderer.material.color = myColor;
-        lineRenderer.widthMultiplier = _graphScale/30; //relationship width is a margin of the scale of the graph objects.
+        lineRenderer.widthMultiplier = _graphScale/5; //relationship width is a margin of the scale of the graph objects.
         linkPoints = new Vector3[numPoints];
         lineRenderer.positionCount = 50;
         midPoint = calcMidPoint(p0, p1);
@@ -168,7 +183,7 @@ public class GraphLoader : MonoBehaviour
         {
             if (linkStartPos.Contains(p0) && linkEndPos.Contains(p1))
             {
-                midPoint.y += _graphScale/4.5f; //adjusted height of midpoint due to smaller dimensions
+                midPoint.y += _graphScale; //adjusted height of midpoint due to smaller dimensions
                 break;
             }
             
@@ -182,7 +197,7 @@ public class GraphLoader : MonoBehaviour
             float t = i / (float)numPoints;
             linkPoints[i-1] = drawCurvedRelation(t, p0, p1, midPoint);    
         }
-        lineRenderer.SetPositions(linkPoints);   
+        lineRenderer.SetPositions(linkPoints);
     }
 
     //formulas to draw relations and associated with them functions ------ 
@@ -205,10 +220,9 @@ public class GraphLoader : MonoBehaviour
 
     //this is an reusable method to instantiate transform objects from prefabs.
     void instantiateObject(Transform shape, float posX, float posZ, string objId) {
-        float scale = (_graphScale / 2f)*200;
-        Transform clone = Instantiate(shape, new Vector3(posX / scale, -0.35f, posZ / scale), Quaternion.identity);
+        Transform clone = Instantiate(shape, new Vector3(posX/7, -3.5f, posZ/7), Quaternion.identity);
         clone.name = "" + objId;
-        clone.localScale -= new Vector3(_graphScale, _graphScale, _graphScale);//Size of the graph object is decided by a given scale.
+        clone.parent = ParentObject.transform;
         objectList.Add(clone.gameObject);
     }  
 }
