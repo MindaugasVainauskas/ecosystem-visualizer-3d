@@ -18,6 +18,17 @@ public class GraphLoader : MonoBehaviour
     public GameObject ParentObject; //Parent object holding graph objects inside it.
     private Vector3 startPos;
     private Vector3 endPos;
+    
+    //Declarations of transforms for gameobjects
+    public Transform sphere;
+    public Transform cube;
+    public Transform diamond;
+    public Transform hex3d;
+    public Transform pyramid;
+    public Transform arrowUp;
+    public Transform arrowDown;
+    public Transform plus3d;
+
 
     //gets called before start. Called once per object lifetime
     void Awake()
@@ -38,22 +49,12 @@ public class GraphLoader : MonoBehaviour
     {
 
     }
-
-    //Declarations of transforms for gameobjects
-    public Transform sphere;
-    public Transform cube;
-    public Transform diamond;
-    public Transform hex3d;
-    public Transform pyramid;
-    public Transform arrowUp;
-    public Transform arrowDown;
-    public Transform plus3d;
-
+    
     //method to load the graph from json file
     public void LoadGraph(string path)
     {
         ParentObject = GameObject.Find("ParentObject");
-        ParentObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f); //Local scale of parent object
+        //ParentObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f); //Local scale of parent object
         objectList = new List<GameObject>();
         string loadGraph = JSONReader.LoadJSon(path);
 
@@ -123,22 +124,16 @@ public class GraphLoader : MonoBehaviour
             //create 2 vector3 objects to hold start and end positions for every relationship
             startPos = new Vector3();
             endPos = new Vector3();
-
-            GameObject StartObj = new GameObject();
-            GameObject EndObj = new GameObject();
+            
             for (int i = 0; i < objectList.Count; i++)
             {
                 if(link.sourceId.Equals(objectList[i].name))
                 {
                     startPos = objectList[i].transform.localPosition;
-                    StartObj = objectList[i];
-                    StartObj.transform.parent = objectList[i].transform;
                 }
                 else if (link.targetId.Equals(objectList[i].name))
                 {
                     endPos = objectList[i].transform.localPosition;
-                    EndObj = objectList[i];
-                    EndObj.transform.parent = objectList[i].transform;
                 }
                 else
                 {
@@ -146,8 +141,7 @@ public class GraphLoader : MonoBehaviour
                 }                
             }
             //render relationship with colour pulled from relationship list.
-            //drawRelationship(50, startPos, endPos, link.relCol);
-            drawRelationship(StartObj, EndObj, link.relCol);
+            drawRelationship(startPos, endPos, link.relCol);
         }//end of foreach method
     }//end of LoadGraph method
 
@@ -156,23 +150,18 @@ public class GraphLoader : MonoBehaviour
     private GameObject tempObj;
 
     //drawing the relationship between nodes
-    //public void drawRelationship(int numPoints, Vector3 p0, Vector3 p1, string relColour)
-    //{
-      public void drawRelationship(GameObject sObj, GameObject eObj, string relColour)
-      {
+    public void drawRelationship(Vector3 p0, Vector3 p1, string relColour)
+    {
         int numPoints = 50;
         //Following takes a Hex string colour value from JSON file and applies it to the new relation.
         Color myColor = new Color();
         ColorUtility.TryParseHtmlString(relColour, out myColor);
-
-        Vector3 p0 = sObj.transform.localPosition;
-        Vector3 p1 = eObj.transform.localPosition;
+        
         Debug.Log("Start pos - "+p0);
         Debug.Log("End pos - "+p1);
         Vector3 midPoint = new Vector3();
         tempObj = new GameObject();
-        tempObj.transform.parent = ParentObject.transform; //add as a child of parent node.
-        lineRenderer = tempObj.AddComponent<LineRenderer>();        
+        lineRenderer = tempObj.AddComponent<LineRenderer>();
         lineRenderer.material.color = myColor;
         lineRenderer.widthMultiplier = _graphScale/5; //relationship width is a margin of the scale of the graph objects.
         linkPoints = new Vector3[numPoints];
@@ -220,7 +209,8 @@ public class GraphLoader : MonoBehaviour
 
     //this is an reusable method to instantiate transform objects from prefabs.
     void instantiateObject(Transform shape, float posX, float posZ, string objId) {
-        Transform clone = Instantiate(shape, new Vector3(posX/7, -3.5f, posZ/7), Quaternion.identity);
+        Transform clone = Instantiate(shape, new Vector3(posX/8, -3.5f, posZ/8), Quaternion.identity);
+        clone.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
         clone.name = "" + objId;
         clone.parent = ParentObject.transform;
         objectList.Add(clone.gameObject);
