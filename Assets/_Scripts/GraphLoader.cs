@@ -76,7 +76,7 @@ public class GraphLoader : MonoBehaviour
             switch (cellType)
             {
                 case "actor":
-                    float posX = cell["position"]["x"]-750;
+                    float posX = cell["position"]["x"]-800;
                     float posZ = ((-1)*cell["position"]["y"])+750;
                     string objId = cell["id"];
 
@@ -156,9 +156,6 @@ public class GraphLoader : MonoBehaviour
         //Following takes a Hex string colour value from JSON file and applies it to the new relation.
         Color myColor = new Color();
         ColorUtility.TryParseHtmlString(relColour, out myColor);
-        
-        Debug.Log("Start pos - "+p0);
-        Debug.Log("End pos - "+p1);
         Vector3 midPoint = new Vector3();
         tempObj = new GameObject();
         lineRenderer = tempObj.AddComponent<LineRenderer>();
