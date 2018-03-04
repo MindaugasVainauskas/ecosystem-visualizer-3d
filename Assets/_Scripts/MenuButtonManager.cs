@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuButtonManager : MonoBehaviour {
 
-    public void btnOpenGraph(string sceneName)
+    public void btnChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
