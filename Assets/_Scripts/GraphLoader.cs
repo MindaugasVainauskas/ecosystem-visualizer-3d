@@ -107,11 +107,18 @@ public class GraphLoader : MonoBehaviour
                     string sourceId = cell["source"]["id"];
                     string targetId = cell["target"]["id"];
                     string relCol = cell["attrs"][".connection"]["stroke"];
-                    //Add the variables of a relationship into a Cell_Link object.
-                    Cell_Link tempLink = new Cell_Link(id, sourceId, targetId, relCol);
-
-                    //Add the relationship to relations list.
-                    relations.Add(tempLink);
+                    JSONArray relArray = (JSONArray)cell["labels"];
+                    string relText;
+                    Cell_Link tempLink;
+                    foreach (JSONNode relAttr in relArray)
+                    {
+                        relText = relAttr["attrs"]["text"]["text"];
+                        //Add the variables of a relationship into a Cell_Link object.
+                        tempLink = new Cell_Link(id, sourceId, targetId, relCol, relText);
+                        //Add the relationship to relations list.
+                        relations.Add(tempLink);
+                        Debug.Log(tempLink.relText);
+                    }
                     break;
 
                 default:
@@ -141,16 +148,16 @@ public class GraphLoader : MonoBehaviour
                 }                
             }
             //render relationship with colour pulled from relationship list.
-            drawRelationship(startPos, endPos, link.relCol);
+            drawRelationship(startPos, endPos, link.relCol, link.relText);
         }//end of foreach method
     }//end of LoadGraph method
 
     private LineRenderer lineRenderer;
     public Vector3[] linkPoints;
     private GameObject tempObj;
-
+    private GameObject midPointObj;
     //drawing the relationship between nodes
-    public void drawRelationship(Vector3 p0, Vector3 p1, string relColour)
+    public void drawRelationship(Vector3 p0, Vector3 p1, string relColour, string relText)
     {
         int numPoints = 50;
         //Following takes a Hex string colour value from JSON file and applies it to the new relation.
@@ -158,22 +165,51 @@ public class GraphLoader : MonoBehaviour
         ColorUtility.TryParseHtmlString(relColour, out myColor);
         Vector3 midPoint = new Vector3();
         tempObj = new GameObject();
+        midPointObj = new GameObject();
         lineRenderer = tempObj.AddComponent<LineRenderer>();
         lineRenderer.material.color = myColor;
-        lineRenderer.widthMultiplier = _graphScale/5; //relationship width is a margin of the scale of the graph objects.
+        lineRenderer.widthMultiplier = _graphScale/7; //relationship width is a margin of the scale of the graph objects.
         linkPoints = new Vector3[numPoints];
         lineRenderer.positionCount = 50;
         midPoint = calcMidPoint(p0, p1);
+        midPointObj.transform.localPosition = midPoint;
+        TextMesh txt = midPointObj.AddComponent<TextMesh>();
+        txt.text = relText;
+        txt.fontSize = 10;       
         
-        for (int i = 0; i < linkStartPos.Count; i++)
-        {
-            if (linkStartPos.Contains(p0) && linkEndPos.Contains(p1))
-            {
-                midPoint.y += _graphScale; //adjusted height of midpoint due to smaller dimensions
-                break;
-            }
+        //for (int i = 0; i < linkStartPos.Count; i++)
+        //{
+        //    if (linkStartPos.Contains(p0) && linkEndPos.Contains(p1))
+        //    {
+        //        midPoint.y += _graphScale; //adjusted height of midpoint due to smaller dimensions
+        //        txt.transform.localPosition += new Vector3(0, (_graphScale/2), 0);
+        //        break;
+        //    }
             
-        }       
+        //}
+
+        //other way of calculating midpoints for recurring relations
+        //Don't like nested for loops but I don't seem to have much other choice...
+        foreach (Vector3 sPos in linkStartPos)
+        {
+            foreach (Vector3 ePos in linkEndPos)
+            {
+                if (sPos == p0 && ePos == p1)
+                {
+                    midPoint.y += (_graphScale/2); //adjusted height of midpoint due to smaller dimensions
+                    txt.transform.localPosition += new Vector3(0, (_graphScale / 4), 0);
+                    break;
+                }
+            }
+           
+        }
+
+        //set positions for text for relationships and names for midpoints and relations themselves.
+        txt.transform.localPosition += new Vector3(-1f, 1f, 0);
+        midPointObj.name = "Midpoint-" + relText;
+        midPointObj.transform.SetParent(ParentObject.transform);
+        tempObj.name = "Relationship-" + relText;
+        tempObj.transform.SetParent(ParentObject.transform);
 
         //add positions to start and end position lists
         linkStartPos.Add(p0);
