@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuButtonManager : MonoBehaviour {
-
+    
     //load the graph scene(for now. Later will load QR code reader first)
     public void btnChangeScene(string sceneName)
     {
