@@ -43,7 +43,7 @@ namespace HoloToolkit.Unity.SpatialMapping
         OrientedBox = 1,
 
         /// <summary>
-        /// The observed volume is a sphere.
+        /// The observed volume is a cloudService.
         /// </summary>
         Sphere = 2
     }

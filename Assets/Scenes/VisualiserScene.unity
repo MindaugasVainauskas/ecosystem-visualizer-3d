@@ -242,6 +242,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 128683743}
+  - component: {fileID: 128683744}
   m_Layer: 0
   m_Name: ParentObject
   m_TagString: Untagged
@@ -262,6 +263,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &128683744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 128683742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5477affff53aad840b1885e8a0fcacc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parentObject: {fileID: 0}
 --- !u!20 &329097552 stripped
 Camera:
   m_PrefabParentObject: {fileID: 20000013304850028, guid: d379ed0a5618c9f479f58bd83a2d0ad3,
@@ -457,14 +470,14 @@ MonoBehaviour:
   objectList: []
   relations: []
   ParentObject: {fileID: 0}
-  sphere: {fileID: 400002, guid: 9a32aab10ab97184087ee7dd9d3c6481, type: 3}
+  cloudService: {fileID: 400002, guid: 9a32aab10ab97184087ee7dd9d3c6481, type: 3}
   cube: {fileID: 400038, guid: 2ce8b36d9c653ae48964835b5ad04f12, type: 3}
   diamond: {fileID: 400018, guid: 5ddab7fe0956519428314fb0124811b7, type: 3}
   hex3d: {fileID: 400022, guid: f10682ef4f5638f4abaf79077cd336ed, type: 3}
-  pyramid: {fileID: 4225654230502930, guid: aef330094aa4c1641a8d8826fb61c8f3, type: 2}
-  arrowUp: {fileID: 4017543239299332, guid: dff1fef9d80e18b44826ec7b405127a3, type: 2}
-  arrowDown: {fileID: 4193158958096494, guid: a9ba6444dce839e48b53aa7a7708ff24, type: 2}
-  plus3d: {fileID: 4826880035669896, guid: acd9b6d358e787543af166604430d015, type: 2}
+  pyramid: {fileID: 400002, guid: fce81a9d2da42504581f01827eb17554, type: 3}
+  arrowUp: {fileID: 400028, guid: 58dcc90b1ade9c649bf88ad174443932, type: 3}
+  arrowDown: {fileID: 400082, guid: a1a83caf946bcc748a866906893a8865, type: 3}
+  plus3d: {fileID: 400060, guid: db29dd09a6597a84a802b88b96193398, type: 3}
   linkPoints: []
 --- !u!4 &930343853
 Transform:
@@ -794,7 +807,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
+  m_DynamicPixelsPerUnit: 10
 --- !u!223 &1299321679
 Canvas:
   m_ObjectHideFlags: 0
@@ -1241,14 +1254,14 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1416645612}
   m_Direction: 1
   m_MinValue: 60
-  m_MaxValue: 110
-  m_WholeNumbers: 1
+  m_MaxValue: 100
+  m_WholeNumbers: 0
   m_Value: 60
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 329097552}
-        m_MethodName: set_fieldOfView
+      - m_Target: {fileID: 128683744}
+        m_MethodName: scaleGraph
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

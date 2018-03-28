@@ -20,7 +20,7 @@ public class GraphLoader : MonoBehaviour
     private Vector3 endPos;
     
     //Declarations of transforms for gameobjects
-    public Transform sphere;
+    public Transform cloudService;
     public Transform cube;
     public Transform diamond;
     public Transform hex3d;
@@ -77,7 +77,7 @@ public class GraphLoader : MonoBehaviour
             {
                 case "actor":
                     float posX = cell["position"]["x"]-800;
-                    float posZ = ((-1)*cell["position"]["y"])+800;
+                    float posZ = ((-1)*cell["position"]["y"])+1400;
                     string objId = cell["id"];
 
                     string objectShape = cell["type"];
@@ -85,7 +85,7 @@ public class GraphLoader : MonoBehaviour
                     switch (objectShape)
                     {
                         case "basic.InteractiveCircle":
-                            instantiateObject(sphere, posX, posZ, objId);
+                            instantiateObject(cloudService, posX, posZ, objId);
                             break;
                         case "basic.InteractiveRect":
                             instantiateObject(cube, posX, posZ, objId);
@@ -168,26 +168,15 @@ public class GraphLoader : MonoBehaviour
         midPointObj = new GameObject();
         lineRenderer = tempObj.AddComponent<LineRenderer>();
         lineRenderer.material.color = myColor;
-        lineRenderer.widthMultiplier = _graphScale/7; //relationship width is a margin of the scale of the graph objects.
+        lineRenderer.widthMultiplier = _graphScale/15; //relationship width is a margin of the scale of the graph objects.
         linkPoints = new Vector3[numPoints];
         lineRenderer.positionCount = 50;
         midPoint = calcMidPoint(p0, p1);
         midPointObj.transform.localPosition = midPoint;
         TextMesh txt = midPointObj.AddComponent<TextMesh>();
         txt.text = relText;
-        txt.fontSize = 10;       
+        txt.fontSize = 8;       
         
-        //for (int i = 0; i < linkStartPos.Count; i++)
-        //{
-        //    if (linkStartPos.Contains(p0) && linkEndPos.Contains(p1))
-        //    {
-        //        midPoint.y += _graphScale; //adjusted height of midpoint due to smaller dimensions
-        //        txt.transform.localPosition += new Vector3(0, (_graphScale/2), 0);
-        //        break;
-        //    }
-            
-        //}
-
         //other way of calculating midpoints for recurring relations
         //Don't like nested for loops but I don't seem to have much other choice...
         foreach (Vector3 sPos in linkStartPos)
@@ -196,8 +185,8 @@ public class GraphLoader : MonoBehaviour
             {
                 if (sPos == p0 && ePos == p1)
                 {
-                    midPoint.y += (_graphScale/2); //adjusted height of midpoint due to smaller dimensions
-                    txt.transform.localPosition += new Vector3(0, (_graphScale / 4), 0);
+                    midPoint.y += (_graphScale/4); //adjusted height of midpoint due to smaller dimensions
+                    txt.transform.localPosition += new Vector3(0, (_graphScale / 6), 0);
                     break;
                 }
             }
@@ -242,9 +231,9 @@ public class GraphLoader : MonoBehaviour
 
     //this is an reusable method to instantiate transform objects from prefabs.
     void instantiateObject(Transform shape, float posX, float posZ, string objId) {
-        float scaleFactor = 0.2f;
-        float distanceReducer = 20f;
-        Transform clone = Instantiate(shape, new Vector3(posX/ distanceReducer, -4.5f, posZ/ distanceReducer), Quaternion.identity);
+        float scaleFactor = 0.07f;
+        float distanceReducer = 30f;
+        Transform clone = Instantiate(shape, new Vector3(posX/ distanceReducer, -4.6f, ((posZ/ distanceReducer)+10)), Quaternion.identity);
         clone.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
         clone.name = "" + objId;
         clone.parent = ParentObject.transform;

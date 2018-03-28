@@ -7,7 +7,7 @@ namespace HoloToolkit.Unity
 {
     /// <summary>
     /// A Tagalong that stays at a fixed distance from the camera and always
-    /// seeks to stay on the edge or inside a sphere that is straight in front of the camera.
+    /// seeks to stay on the edge or inside a cloudService that is straight in front of the camera.
     /// </summary>
     public class SphereBasedTagalong : MonoBehaviour
     {
@@ -20,7 +20,7 @@ namespace HoloToolkit.Unity
         [Tooltip("When moving, use unscaled time. This is useful for games that have a pause mechanism or otherwise adjust the game timescale.")]
         public bool UseUnscaledTime = true;
 
-        [Tooltip("Display the sphere in red wireframe for debugging purposes.")]
+        [Tooltip("Display the cloudService in red wireframe for debugging purposes.")]
         public bool DebugDisplaySphere = false;
 
         [Tooltip("Display a small green cube where the target position is.")]
