@@ -231,7 +231,7 @@ public class GraphLoader : MonoBehaviour
 
     //this is an reusable method to instantiate transform objects from prefabs.
     void instantiateObject(Transform shape, float posX, float posZ, string objId) {
-        float scaleFactor = 0.07f;
+        float scaleFactor = 0.09f;
         float distanceReducer = 30f;
         Transform clone = Instantiate(shape, new Vector3(posX/ distanceReducer, -4.6f, ((posZ/ distanceReducer)+10)), Quaternion.identity);
         clone.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
