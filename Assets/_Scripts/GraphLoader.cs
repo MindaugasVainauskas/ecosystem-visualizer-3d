@@ -33,8 +33,11 @@ public class GraphLoader : MonoBehaviour
     //gets called before start. Called once per object lifetime
     void Awake()
     {
-        LoadGraph("Ecosystem4.json");
-       // LoadGraph("MoreComplex.json");
+        // LoadGraph("Ecosystem4.json");
+        string data = PlayerPrefs.GetString("JSON_graph_data");
+        Debug.Log("New Scene data ===> "+data);
+        LoadGraph(data);
+        // LoadGraph("MoreComplex.json");
         //LoadGraph("Simple.json");
     }
 
@@ -56,7 +59,8 @@ public class GraphLoader : MonoBehaviour
         ParentObject = GameObject.Find("ParentObject");
         //ParentObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f); //Local scale of parent object
         objectList = new List<GameObject>();
-        string loadGraph = JSONReader.LoadJSon(path);
+        //string loadGraph = JSONReader.LoadJSon(path);
+        string loadGraph = path;
 
         linkStartPos = new List<Vector3>();
         linkEndPos = new List<Vector3>();
@@ -65,8 +69,8 @@ public class GraphLoader : MonoBehaviour
 
         JSONNode jNode = JSON.Parse(loadGraph);
 
-        //split JSON node into JSON array.
-        JSONArray cellArray = (JSONArray)jNode["cells"];
+        //split JSON node into JSON array. Had to add ["graph"] at start to handle QR code input
+        JSONArray cellArray = (JSONArray)jNode["graph"]["cells"];
         
 
         foreach (JSONNode cell in cellArray)

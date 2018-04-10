@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using ZXing;
 using ZXing.Client.Result;
 
@@ -11,12 +12,14 @@ public class QR_TokenParser : MonoBehaviour {
     private Rect screenRect;
     private string decodedString;
     private GraphAccessToken token;
+    private string jsonRequestData;
 
     // Use this for initialization
-    void Start ()
+    void Awake ()
     {
         //set decoded string to null
         decodedString = null;
+        jsonRequestData = null;
         //instantiate new GraphAccessToken class
         token = new GraphAccessToken();
         screenRect = new Rect(0, 0, Screen.width, Screen.height);
@@ -28,6 +31,8 @@ public class QR_TokenParser : MonoBehaviour {
             camTexture.Play();
         }
     }
+
+
 
     void OnGUI()
     {
@@ -55,6 +60,8 @@ public class QR_TokenParser : MonoBehaviour {
 
                 //send request to get full JSON from the network.
                 StartCoroutine(GetTheJson(token));
+                
+                
             }
             
                 
@@ -78,8 +85,22 @@ public class QR_TokenParser : MonoBehaviour {
         }
         else
         {
+            jsonRequestData = jsonRequest.downloadHandler.text;
             // Show results as text
-            Debug.Log(jsonRequest.downloadHandler.text);
+            Debug.Log(jsonRequestData);
+
+            if (jsonRequestData != null)
+            {
+                changeScene();
+            }
         }
+    }
+
+    public void changeScene()
+    {
+        PlayerPrefs.SetString("JSON_graph_data", jsonRequestData);
+        camTexture.Stop();
+        
+        SceneManager.LoadScene("VisualiserScene");
     }
 }
