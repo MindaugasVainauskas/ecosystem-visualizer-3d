@@ -53,7 +53,7 @@ public class QR_TokenParser : MonoBehaviour {
                 Debug.Log(token.url);
                 Debug.Log(token.auth_token);
 
-                //send request to get full JSON.
+                //send request to get full JSON from the network.
                 StartCoroutine(GetTheJson(token));
             }
             
@@ -64,8 +64,11 @@ public class QR_TokenParser : MonoBehaviour {
 
     IEnumerator GetTheJson(GraphAccessToken token)
     {
+        //Since url in token doesn't come with http:// prefix (why?) need to add it so that get request works.
         UnityWebRequest jsonRequest = UnityWebRequest.Get("http://"+token.url);
+        //set the get request header to authentication header
         jsonRequest.SetRequestHeader("x-hololens-token", token.auth_token);
+        //send the request
         yield return jsonRequest.Send();
         Debug.Log("Request sent with auth_token: "+token.auth_token);
 
