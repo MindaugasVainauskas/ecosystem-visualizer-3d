@@ -26,13 +26,13 @@ public class QR_TokenParser : MonoBehaviour {
         camTexture = new WebCamTexture();
         camTexture.requestedHeight = Screen.height;
         camTexture.requestedWidth = Screen.width;
+
+        //Start up camera feed if texture is not null.
         if (camTexture != null)
         {
             camTexture.Play();
         }
     }
-
-
 
     void OnGUI()
     {
@@ -54,31 +54,24 @@ public class QR_TokenParser : MonoBehaviour {
                 //Use Unity built in JsonUtility.FromJson() method to deserialize the string
                 token = (GraphAccessToken)JsonUtility.FromJson(decodedString, typeof(GraphAccessToken));
 
-                //check for output.
-                Debug.Log(token.url);
-                Debug.Log(token.auth_token);
-
                 //send request to get full JSON from the network.
-                StartCoroutine(GetTheJson(token));
-                
-                
-            }
-            
-                
+                StartCoroutine(GetTheJson(token));                
+            }                
         }
         catch (Exception ex) { Debug.LogWarning(ex.Message); }
     }
 
     IEnumerator GetTheJson(GraphAccessToken token)
     {
-        //Since url in token doesn't come with http:// prefix (why?) need to add it so that get request works.
-        UnityWebRequest jsonRequest = UnityWebRequest.Get("http://"+token.url);
+        //Set up a GET request with url from the QR code data
+        UnityWebRequest jsonRequest = UnityWebRequest.Get(token.url);
         //set the get request header to authentication header
         jsonRequest.SetRequestHeader("x-hololens-token", token.auth_token);
         //send the request
         yield return jsonRequest.Send();
         Debug.Log("Request sent with auth_token: "+token.auth_token);
 
+        //Catch an error if something wrong happens and display in console.
         if (jsonRequest.isError)
         {
             Debug.Log(jsonRequest.error);
@@ -86,9 +79,10 @@ public class QR_TokenParser : MonoBehaviour {
         else
         {
             jsonRequestData = jsonRequest.downloadHandler.text;
-            // Show results as text
+            // Show results as text in console
             Debug.Log(jsonRequestData);
 
+            //If the request brings back a response save the JSON array and load next scene.
             if (jsonRequestData != null)
             {
                 changeScene();
@@ -98,9 +92,12 @@ public class QR_TokenParser : MonoBehaviour {
 
     public void changeScene()
     {
+        //Save the JSON in PlayerPrefs preset.
         PlayerPrefs.SetString("JSON_graph_data", jsonRequestData);
+        //Stop the camera.
         camTexture.Stop();
         
+        //Load the visualiser scene
         SceneManager.LoadScene("VisualiserScene");
     }
 }

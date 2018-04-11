@@ -28,38 +28,23 @@ public class GraphLoader : MonoBehaviour
     public Transform arrowUp;
     public Transform arrowDown;
     public Transform plus3d;
+    public Transform sphere;
 
 
     //gets called before start. Called once per object lifetime
     void Awake()
     {
-        // LoadGraph("Ecosystem4.json");
+        //Load the JSON received through GET request in QR code reader class.
         string data = PlayerPrefs.GetString("JSON_graph_data");
-        Debug.Log("New Scene data ===> "+data);
+        //Load the graph from given data.
         LoadGraph(data);
-        // LoadGraph("MoreComplex.json");
-        //LoadGraph("Simple.json");
-    }
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
     
     //method to load the graph from json file
     public void LoadGraph(string path)
     {
         ParentObject = GameObject.Find("ParentObject");
-        //ParentObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f); //Local scale of parent object
         objectList = new List<GameObject>();
-        //string loadGraph = JSONReader.LoadJSon(path);
         string loadGraph = path;
 
         linkStartPos = new List<Vector3>();
@@ -86,6 +71,7 @@ public class GraphLoader : MonoBehaviour
 
                     string objectShape = cell["type"];
                     
+                    //Instantiate graph nodes depending on actor types present in JSON array.
                     switch (objectShape)
                     {
                         case "basic.InteractiveCircle":
@@ -101,6 +87,8 @@ public class GraphLoader : MonoBehaviour
                             instantiateObject(hex3d, posX, posZ, objId);
                             break;
                         default:
+                            //If the prefab is not in the list, Just instantiate it as a sphere.
+                            instantiateObject(sphere, posX, posZ, objId);
                             break;
                     }                    
                     break;

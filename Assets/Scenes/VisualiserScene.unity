@@ -112,7 +112,7 @@ Light:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -443,6 +443,7 @@ MonoBehaviour:
   arrowUp: {fileID: 400028, guid: 58dcc90b1ade9c649bf88ad174443932, type: 3}
   arrowDown: {fileID: 400082, guid: a1a83caf946bcc748a866906893a8865, type: 3}
   plus3d: {fileID: 400060, guid: db29dd09a6597a84a802b88b96193398, type: 3}
+  sphere: {fileID: 4340158401049768, guid: 9ecf07b5d40e108489c8f2e2578de597, type: 2}
   linkPoints: []
 --- !u!4 &930343853
 Transform:

@@ -11,9 +11,12 @@ public class MenuButtonManager : MonoBehaviour {
         SceneManager.LoadScene(sceneName);
     }
 
-    //Should exit from application
+    //Exit from application
     public void btnExitApp()
     {
+        //Clean out the current stored graph
+        PlayerPrefs.SetString("JSON_graph_data", null);
+        //exit the application.
         Application.Quit();
     }
 }
