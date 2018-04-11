@@ -19,7 +19,7 @@ public class GraphLoader : MonoBehaviour
     private Vector3 startPos;
     private Vector3 endPos;
     
-    //Declarations of transforms for gameobjects
+    //Declarations of transforms for gameobjects that are mapped to certain 3d model prefab.
     public Transform cloudService;
     public Transform cube;
     public Transform diamond;
