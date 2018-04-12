@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Candidate for removal
 public class JSONReader {
     //load the text from resources folder
     public static string LoadJSon(string jsonPath)

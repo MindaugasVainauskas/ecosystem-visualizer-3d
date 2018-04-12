@@ -17,6 +17,7 @@ public class QR_TokenParser : MonoBehaviour {
     // Use this for initialization
     void Awake ()
     {
+        Debug.Log("Awoke in QR Reader Scene==!");
         //set decoded string to null
         decodedString = null;
         jsonRequestData = null;
@@ -30,7 +31,9 @@ public class QR_TokenParser : MonoBehaviour {
         //Start up camera feed if texture is not null.
         if (camTexture != null)
         {
+            
             camTexture.Play();
+            Debug.Log("Started video feed==!");
         }
     }
 
@@ -42,11 +45,12 @@ public class QR_TokenParser : MonoBehaviour {
         try
         {
             IBarcodeReader barcodeReader = new BarcodeReader();
+            Debug.Log("Setting up barcode reader===!");
             // decode the current frame
-            var result = barcodeReader.Decode(camTexture.GetPixels32(),
-              camTexture.width, camTexture.height);
+            var result = barcodeReader.Decode(camTexture.GetPixels32(), camTexture.width, camTexture.height);
             if (result != null && decodedString == null)
             {
+                Debug.Log("Getting the parsed result===!");
                 //parse QR code result with ZXing result parser class
                 var resSon = ResultParser.parseResult(result);
                 //set it to string
@@ -54,6 +58,7 @@ public class QR_TokenParser : MonoBehaviour {
                 //Use Unity built in JsonUtility.FromJson() method to deserialize the string
                 token = (GraphAccessToken)JsonUtility.FromJson(decodedString, typeof(GraphAccessToken));
 
+                Debug.Log("Parsed QR Code url: "+token.url);
                 //send request to get full JSON from the network.
                 StartCoroutine(GetTheJson(token));                
             }                
