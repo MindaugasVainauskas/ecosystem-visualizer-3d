@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NodeManager{
     
+    //Variable declarations.
     public GameObject parentObject; //Parent object holding graph objects inside it.
     private List<GameObject> objectList;
 
@@ -26,6 +27,7 @@ public class NodeManager{
         objectList.Add(clone.gameObject);
     }
 
+    //Method to retrieve the object list
     public List<GameObject> getObjectList()
     {
         return objectList;
