@@ -1,0 +1,2460 @@
+{
+	"cells": [
+	  {
+		"z": 1,
+		"id": "79899b2f-583f-4b10-a973-eda8a62e541d",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveCircle",
+		"angle": 0,
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "Environment\nDept"
+		  },
+		  "title": {
+			"text": "Environment Dept"
+		  },
+		  ".inner": {
+			"fill": "#ff473a"
+		  },
+		  ".outer": {
+			"fill": "#ff473a",
+			"magnet": true
+		  }
+		},
+		"embeds": "",
+		"data_id": 4802,
+		"celltype": "actor",
+		"position": {
+		  "x": 444,
+		  "y": 139
+		},
+		"stakeholder_id": 6788
+	  },
+	  {
+		"z": 1,
+		"id": "c7ba08d6-b464-4b03-9485-032df74d52ea",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveCircle",
+		"angle": 0,
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "Public\nService\nCompanies"
+		  },
+		  "title": {
+			"text": "Public Service Companies"
+		  },
+		  ".inner": {
+			"fill": "#ff473a"
+		  },
+		  ".outer": {
+			"fill": "#ff473a",
+			"magnet": true
+		  }
+		},
+		"embeds": "",
+		"data_id": 5454,
+		"celltype": "actor",
+		"position": {
+		  "x": 612,
+		  "y": 135
+		},
+		"stakeholder_id": 7711
+	  },
+	  {
+		"z": 1,
+		"id": "d663932b-eb23-411f-a9b2-947043581f97",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveCircle",
+		"angle": 0,
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "Procuremen\nt Manager"
+		  },
+		  "title": {
+			"text": "Procurement Manager"
+		  },
+		  ".inner": {
+			"fill": "#ff473a"
+		  },
+		  ".outer": {
+			"fill": "#ff473a",
+			"magnet": true
+		  }
+		},
+		"embeds": "",
+		"data_id": 5487,
+		"celltype": "actor",
+		"position": {
+		  "x": 936,
+		  "y": 620
+		},
+		"stakeholder_id": 7716
+	  },
+	  {
+		"z": 1,
+		"id": "e9a1345a-3cc1-46f2-bfc3-a96d730e0c9e",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveCircle",
+		"angle": 0,
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "Airport"
+		  },
+		  "title": {
+			"text": "Airport"
+		  },
+		  ".inner": {
+			"fill": "#ff473a"
+		  },
+		  ".outer": {
+			"fill": "#ff473a",
+			"magnet": true
+		  }
+		},
+		"embeds": "",
+		"data_id": 5672,
+		"celltype": "actor",
+		"position": {
+		  "x": 323,
+		  "y": 187
+		},
+		"stakeholder_id": 7719
+	  },
+	  {
+		"z": 2,
+		"id": "e73f1d89-0a80-4ab4-885d-98d67085a9f1",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveCircle",
+		"angle": 0,
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "Utility\nCompanies"
+		  },
+		  "title": {
+			"text": "Utility Companies"
+		  },
+		  ".inner": {
+			"fill": "#ff473a"
+		  },
+		  ".outer": {
+			"fill": "#ff473a",
+			"magnet": true
+		  }
+		},
+		"embeds": "",
+		"data_id": 4989,
+		"celltype": "actor",
+		"position": {
+		  "x": 1070,
+		  "y": 270
+		},
+		"stakeholder_id": 7712
+	  },
+	  {
+		"z": 5,
+		"id": "610ca9d9-6cf7-43f0-9e50-94cf5af5926a",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveCircle",
+		"angle": 0,
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "Product\nmanager"
+		  },
+		  "title": {
+			"text": "Product manager"
+		  },
+		  ".inner": {
+			"fill": "#FF473A"
+		  },
+		  ".outer": {
+			"fill": "#FF473A",
+			"magnet": true
+		  }
+		},
+		"embeds": "",
+		"data_id": 4803,
+		"celltype": "actor",
+		"position": {
+		  "x": 468,
+		  "y": 61
+		},
+		"stakeholder_id": 6796
+	  },
+	  {
+		"z": 5,
+		"id": "3b09b69a-1551-4136-bf1e-043603591889",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveCircle",
+		"angle": 0,
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "Advertiser"
+		  },
+		  "title": {
+			"text": "Advertiser"
+		  },
+		  ".inner": {
+			"fill": "#ff473a"
+		  },
+		  ".outer": {
+			"fill": "#ff473a",
+			"magnet": true
+		  }
+		},
+		"embeds": "",
+		"data_id": 4804,
+		"celltype": "actor",
+		"position": {
+		  "x": 1268,
+		  "y": 599
+		},
+		"stakeholder_id": 6797
+	  },
+	  {
+		"z": 14,
+		"id": "616b85ed-f0f6-4647-a105-78c50781f8ed",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#8BED8E",
+			"stroke-width": 3,
+			"data-category": "Financial"
+		  },
+		  "data-category": {
+			"0": "F",
+			"1": "i",
+			"2": "n",
+			"3": "a",
+			"4": "n",
+			"5": "c",
+			"6": "i",
+			"7": "a",
+			"8": "l"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#8BED8E",
+			"stroke": "#8BED8E"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "yy44bC49tYJ98FIezgyI",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Funding"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "98ce4c17-c140-41bb-b18e-31dd0358b378",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "84890e50-a473-45f4-810b-8aea65d32383"
+		},
+		"data_id": 8088,
+		"celltype": "relationship",
+		"vertices": [
+		  {
+			"x": 1278,
+			"y": 194
+		  }
+		],
+		"allowExtend": false
+	  },
+	  {
+		"z": 15,
+		"id": "2285eac1-9fd1-4d30-811e-f63bed654532",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#0028F6",
+			"stroke-width": 3,
+			"data-category": "Contractual"
+		  },
+		  "data-category": {
+			"0": "C",
+			"1": "o",
+			"2": "n",
+			"3": "t",
+			"4": "r",
+			"5": "a",
+			"6": "c",
+			"7": "t",
+			"8": "u",
+			"9": "a",
+			"10": "l"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#0028F6",
+			"stroke": "#0028F6"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "2Kqp0ryRagDiaoq3WpGO",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Contract"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "22944309-2582-477e-a33e-340a61bc984c",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "84890e50-a473-45f4-810b-8aea65d32383"
+		},
+		"data_id": 8089,
+		"celltype": "relationship",
+		"vertices": [
+		  {
+			"x": 939,
+			"y": 159
+		  }
+		],
+		"allowExtend": false
+	  },
+	  {
+		"z": 16,
+		"id": "e151865e-cf6a-459d-b70c-0572fbc8c575",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#8BED8E",
+			"stroke-width": 3,
+			"data-category": "Financial"
+		  },
+		  "data-category": {
+			"0": "F",
+			"1": "i",
+			"2": "n",
+			"3": "a",
+			"4": "n",
+			"5": "c",
+			"6": "i",
+			"7": "a",
+			"8": "l"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#8BED8E",
+			"stroke": "#8BED8E"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "9v000YaicrnbeQKFy727",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Hosting"
+			  }
+			},
+			"position": 0.6
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "84890e50-a473-45f4-810b-8aea65d32383",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "22944309-2582-477e-a33e-340a61bc984c"
+		},
+		"data_id": 8086,
+		"celltype": "relationship",
+		"vertices": [
+		  {
+			"x": 947.02835869767,
+			"y": 119.81396349946
+		  }
+		],
+		"allowExtend": false
+	  },
+	  {
+		"z": 17,
+		"id": "a4e9f71f-5e3c-4a89-9d26-c0e6354cf6ac",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#E48773",
+			"stroke-width": 3,
+			"data-category": "Operational"
+		  },
+		  "data-category": {
+			"0": "O",
+			"1": "p",
+			"2": "e",
+			"3": "r",
+			"4": "a",
+			"5": "t",
+			"6": "i",
+			"7": "o",
+			"8": "n",
+			"9": "a",
+			"10": "l"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#E48773",
+			"stroke": "#E48773"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "UU4GFfQJwSp0PY5OCPqj",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Operate"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "84890e50-a473-45f4-810b-8aea65d32383",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4",
+		  "port": null
+		},
+		"data_id": 8102,
+		"celltype": "relationship",
+		"allowExtend": false
+	  },
+	  {
+		"z": 18,
+		"id": "57826a93-285c-42a9-b8f3-fd651708e083",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#8869D2",
+			"stroke-width": 3,
+			"data-category": "Product\/Service"
+		  },
+		  "data-category": {
+			"0": "P",
+			"1": "r",
+			"2": "o",
+			"3": "d",
+			"4": "u",
+			"5": "c",
+			"6": "t",
+			"7": "\/",
+			"8": "S",
+			"9": "e",
+			"10": "r",
+			"11": "v",
+			"12": "i",
+			"13": "c",
+			"14": "e"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#8869D2",
+			"stroke": "#8869D2"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "oTjCiTbRfU22xxP5HSam",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Hosting Services"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "22944309-2582-477e-a33e-340a61bc984c",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4"
+		},
+		"data_id": 8097,
+		"celltype": "relationship",
+		"allowExtend": false
+	  },
+	  {
+		"z": 19,
+		"id": "102b0561-aad4-478f-af57-aacd4e22b6a0",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#8869D2",
+			"stroke-width": 3,
+			"data-category": "Product\/Service"
+		  },
+		  "data-category": {
+			"0": "P",
+			"1": "r",
+			"2": "o",
+			"3": "d",
+			"4": "u",
+			"5": "c",
+			"6": "t",
+			"7": "\/",
+			"8": "S",
+			"9": "e",
+			"10": "r",
+			"11": "v",
+			"12": "i",
+			"13": "c",
+			"14": "e"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#8869D2",
+			"stroke": "#8869D2"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "2eTNi22VNtZvzGvlli9v",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Publish Apps"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "b8f26522-b11e-46e0-beca-db0a7bd0e06d",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4"
+		},
+		"data_id": 8093,
+		"celltype": "relationship",
+		"vertices": [
+		  {
+			"x": 1062.5,
+			"y": 426.5
+		  }
+		],
+		"allowExtend": false
+	  },
+	  {
+		"z": 20,
+		"id": "6efca6cb-d142-49c6-997f-9bdd52ce6704",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#8BED8E",
+			"stroke-width": 3,
+			"data-category": "Financial"
+		  },
+		  "data-category": {
+			"0": "F",
+			"1": "i",
+			"2": "n",
+			"3": "a",
+			"4": "n",
+			"5": "c",
+			"6": "i",
+			"7": "a",
+			"8": "l"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#8BED8E",
+			"stroke": "#8BED8E"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "WTb70F0s0lvTBNaWZnVl",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Generate Revenue"
+			  }
+			},
+			"position": 0.6
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > rect:nth-child(1)"
+		},
+		"target": {
+		  "id": "b8f26522-b11e-46e0-beca-db0a7bd0e06d"
+		},
+		"data_id": 8104,
+		"celltype": "relationship",
+		"vertices": [
+		  {
+			"x": 1050.818055455,
+			"y": 464.75613900603
+		  }
+		],
+		"allowExtend": false
+	  },
+	  {
+		"z": 21,
+		"id": "90a8bfa7-3472-4a56-b8d8-1aeff4f8df25",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#0028F6",
+			"stroke-width": 3,
+			"data-category": "Contractual"
+		  },
+		  "data-category": {
+			"0": "C",
+			"1": "o",
+			"2": "n",
+			"3": "t",
+			"4": "r",
+			"5": "a",
+			"6": "c",
+			"7": "t",
+			"8": "u",
+			"9": "a",
+			"10": "l"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#0028F6",
+			"stroke": "#0028F6"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "DcwYcU01bIROcgKWk6AI",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Contract"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "b8f26522-b11e-46e0-beca-db0a7bd0e06d",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "84890e50-a473-45f4-810b-8aea65d32383"
+		},
+		"data_id": 8087,
+		"celltype": "relationship",
+		"allowExtend": false
+	  },
+	  {
+		"z": 22,
+		"id": "88d2365a-a2eb-4257-875b-daca11f72e34",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#8869D2",
+			"stroke-width": 3,
+			"data-category": "Product\/Service"
+		  },
+		  "data-category": {
+			"0": "P",
+			"1": "r",
+			"2": "o",
+			"3": "d",
+			"4": "u",
+			"5": "c",
+			"6": "t",
+			"7": "\/",
+			"8": "S",
+			"9": "e",
+			"10": "r",
+			"11": "v",
+			"12": "i",
+			"13": "c",
+			"14": "e"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#8869D2",
+			"stroke": "#8869D2"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "x7HdPccwgZox3jsCI9mg",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Use Services & Products"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "f50d335d-b4ce-4d25-bbef-6dbf4e79020e",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > path:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4"
+		},
+		"data_id": 8096,
+		"celltype": "relationship",
+		"vertices": [
+		  {
+			"x": 974,
+			"y": 499.5
+		  }
+		],
+		"allowExtend": false
+	  },
+	  {
+		"z": 23,
+		"id": "cc999c73-0b11-4d13-8c12-481a86ae4834",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#8BED8E",
+			"stroke-width": 3,
+			"data-category": "Financial"
+		  },
+		  "data-category": {
+			"0": "F",
+			"1": "i",
+			"2": "n",
+			"3": "a",
+			"4": "n",
+			"5": "c",
+			"6": "i",
+			"7": "a",
+			"8": "l"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#8BED8E",
+			"stroke": "#8BED8E"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "no0Ab8tpybLuQsBRk5lb",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Payment"
+			  }
+			},
+			"position": 0.6
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "f50d335d-b4ce-4d25-bbef-6dbf4e79020e",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > path:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4"
+		},
+		"data_id": 8095,
+		"celltype": "relationship",
+		"vertices": [
+		  {
+			"x": 944.41206554867,
+			"y": 526.41754325536
+		  }
+		],
+		"allowExtend": false
+	  },
+	  {
+		"z": 25,
+		"id": "2a3a1153-301c-40cf-8462-f84916061d95",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#FC952A",
+			"stroke-width": 3,
+			"data-category": "Data"
+		  },
+		  "data-category": {
+			"0": "D",
+			"1": "a",
+			"2": "t",
+			"3": "a"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#FC952A",
+			"stroke": "#FC952A"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "259ypV0vdcYacR8VpJke",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Data Feeds"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "6580ac64-937d-49e5-8093-43cda8bda243",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > path:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4"
+		},
+		"data_id": 8098,
+		"celltype": "relationship",
+		"allowExtend": false
+	  },
+	  {
+		"z": 26,
+		"id": "085ad5bc-12aa-41b3-9248-84942cf42216",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#FC952A",
+			"stroke-width": 3,
+			"data-category": "Data"
+		  },
+		  "data-category": {
+			"0": "D",
+			"1": "a",
+			"2": "t",
+			"3": "a"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#FC952A",
+			"stroke": "#FC952A"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "11JYsSTw6Q5LRI0ZR1tg",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Data Feeds"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "166f51a0-5514-4f4c-bb7d-e729330d86d7",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > path:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4"
+		},
+		"data_id": 8099,
+		"celltype": "relationship",
+		"allowExtend": false
+	  },
+	  {
+		"z": 27,
+		"id": "a0a09161-b087-4cca-8635-1491cdadd4ac",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#FC952A",
+			"stroke-width": 3,
+			"data-category": "Data"
+		  },
+		  "data-category": {
+			"0": "D",
+			"1": "a",
+			"2": "t",
+			"3": "a"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#FC952A",
+			"stroke": "#FC952A"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "JbkSL7FFQjDhWQ1tlLQL",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Data Feeds"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "e277a7c0-c61a-4a91-b45d-18b5e018572a",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4",
+		  "port": null
+		},
+		"data_id": 8101,
+		"celltype": "relationship",
+		"allowExtend": false
+	  },
+	  {
+		"z": 28,
+		"id": "8974a1b6-5d38-4e4b-b9d3-87228b87f77b",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#FC952A",
+			"stroke-width": 3,
+			"data-category": "Data"
+		  },
+		  "data-category": {
+			"0": "D",
+			"1": "a",
+			"2": "t",
+			"3": "a"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#FC952A",
+			"stroke": "#FC952A"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "ZYyNhtMjBzHpzPaxceHP",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Data Feeds"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "19ae2671-2696-40aa-a323-09dfc7bd52ec",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > path:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4"
+		},
+		"data_id": 8100,
+		"celltype": "relationship",
+		"allowExtend": false
+	  },
+	  {
+		"z": 29,
+		"id": "faae15fd-2798-4e03-8a35-a987ffe17a61",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#FC952A",
+			"stroke-width": 3,
+			"data-category": "Data"
+		  },
+		  "data-category": {
+			"0": "D",
+			"1": "a",
+			"2": "t",
+			"3": "a"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#FC952A",
+			"stroke": "#FC952A"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "OEWQbnR0RS9E3T2y4aeI",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Data Feeds"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "4aed22ae-f381-4a68-a6f7-17e665e12c3e",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > path:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4"
+		},
+		"data_id": 8092,
+		"celltype": "relationship",
+		"allowExtend": false
+	  },
+	  {
+		"z": 99,
+		"id": "7c31f6a2-8a87-4bb4-8147-539badd40204",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#E48773",
+			"stroke-width": 3,
+			"data-category": "Operational"
+		  },
+		  "data-category": {
+			"0": "O",
+			"1": "p",
+			"2": "e",
+			"3": "r",
+			"4": "a",
+			"5": "t",
+			"6": "i",
+			"7": "o",
+			"8": "n",
+			"9": "a",
+			"10": "l"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#E48773",
+			"stroke": "#E48773"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "gNzWudHOHlQvYbw2laC5",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Ops"
+			  }
+			},
+			"position": 0.4
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "22944309-2582-477e-a33e-340a61bc984c",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "84890e50-a473-45f4-810b-8aea65d32383",
+		  "port": null
+		},
+		"data_id": 8108,
+		"celltype": "relationship",
+		"vertices": [
+		  {
+			"x": 930.97164130233,
+			"y": 198.18603650054
+		  }
+		],
+		"allowExtend": false
+	  },
+	  {
+		"z": 100,
+		"id": "3d01072a-796d-4fe2-8684-5fb4b7c5688f",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#FC952A",
+			"stroke-width": 3,
+			"data-category": "Data"
+		  },
+		  "data-category": {
+			"0": "D",
+			"1": "a",
+			"2": "t",
+			"3": "a"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#FC952A",
+			"stroke": "#FC952A"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "XZKzem3oKP9ubxSlA9NX",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Provide Service"
+			  }
+			},
+			"position": 0.7
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "22944309-2582-477e-a33e-340a61bc984c",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "84890e50-a473-45f4-810b-8aea65d32383",
+		  "port": null
+		},
+		"data_id": 8091,
+		"celltype": "relationship",
+		"vertices": [
+		  {
+			"x": 955.05671739534,
+			"y": 80.627926998923
+		  }
+		],
+		"allowExtend": false
+	  },
+	  {
+		"z": 123,
+		"id": "ffea365c-7ddc-42a7-a9c2-6699003a38ed",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#FC952A",
+			"stroke-width": 3,
+			"data-category": "Data"
+		  },
+		  "data-category": {
+			"0": "D",
+			"1": "a",
+			"2": "t",
+			"3": "a"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#FC952A",
+			"stroke": "#FC952A"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "FSXa5WEYUESXLBhtBVhI",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "cust info"
+			  }
+			},
+			"position": 0.3
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "22944309-2582-477e-a33e-340a61bc984c",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "84890e50-a473-45f4-810b-8aea65d32383"
+		},
+		"data_id": 8090,
+		"celltype": "relationship",
+		"vertices": [
+		  {
+			"x": 922.94328260466,
+			"y": 237.37207300108
+		  }
+		],
+		"allowExtend": false
+	  },
+	  {
+		"z": 362,
+		"id": "705ed296-d02c-4ae1-96fe-d2848fd521ce",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#8a8a8a",
+			"stroke-width": 3,
+			"data-category": "None"
+		  },
+		  "data-category": {
+			"0": "N",
+			"1": "o",
+			"2": "n",
+			"3": "e"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#8a8a8a",
+			"stroke": "#8a8a8a"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "cJpB40KnfcN1dviBdFoS",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "New Service API"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "98ce4c17-c140-41bb-b18e-31dd0358b378",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "b8f26522-b11e-46e0-beca-db0a7bd0e06d"
+		},
+		"data_id": 8103,
+		"celltype": "relationship",
+		"allowExtend": false
+	  },
+	  {
+		"z": 538,
+		"id": "278338dc-dacb-4e29-b886-ce483dd73476",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#FC952A",
+			"stroke-width": 3,
+			"data-category": "Data"
+		  },
+		  "data-category": {
+			"0": "D",
+			"1": "a",
+			"2": "t",
+			"3": "a"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#FC952A",
+			"stroke": "#FC952A"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"relID": "BgYlDrylXiVxfHyeqzdO",
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": ""
+			  }
+			},
+			"position": 0.4
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "b8f26522-b11e-46e0-beca-db0a7bd0e06d",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4"
+		},
+		"data_id": 8094,
+		"celltype": "relationship",
+		"vertices": [
+		  {
+			"x": 1074.181944545,
+			"y": 388.24386099397
+		  }
+		],
+		"allowExtend": false
+	  },
+	  {
+		"z": 1071,
+		"id": "22944309-2582-477e-a33e-340a61bc984c",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveCircle",
+		"angle": 0,
+		"asset": "office01",
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "Comms\nService\nProvider"
+		  },
+		  "title": {
+			"text": "Comms Service Provider"
+		  },
+		  ".inner": {
+			"fill": "#FF473A"
+		  },
+		  ".outer": {
+			"fill": "#FF473A",
+			"magnet": true
+		  }
+		},
+		"elemID": "8ee243d4-1bce-45cd-9b0d-d883f3d26603",
+		"data_id": 4791,
+		"celltype": "actor",
+		"position": {
+		  "x": 694,
+		  "y": 77
+		}
+	  },
+	  {
+		"z": 1072,
+		"id": "84890e50-a473-45f4-810b-8aea65d32383",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveCircle",
+		"angle": 0,
+		"asset": "office01",
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "City"
+		  },
+		  "title": {
+			"text": "City"
+		  },
+		  ".inner": {
+			"fill": "#ff473a"
+		  },
+		  ".outer": {
+			"fill": "#ff473a",
+			"magnet": true
+		  }
+		},
+		"elemID": "01919176-624f-4c8b-a890-b12b8205366f",
+		"data_id": 4792,
+		"celltype": "actor",
+		"position": {
+		  "x": 1104,
+		  "y": 161
+		}
+	  },
+	  {
+		"z": 1073,
+		"id": "b8f26522-b11e-46e0-beca-db0a7bd0e06d",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveCircle",
+		"angle": 0,
+		"asset": "office01",
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "App\nDevelopers"
+		  },
+		  "title": {
+			"text": "App Developers"
+		  },
+		  ".inner": {
+			"fill": "#ff473a"
+		  },
+		  ".outer": {
+			"fill": "#ff473a",
+			"magnet": true
+		  }
+		},
+		"elemID": "9870d7a3-b89b-447f-88a9-002e0dbec620",
+		"data_id": 4795,
+		"celltype": "actor",
+		"position": {
+		  "x": 1237,
+		  "y": 452
+		}
+	  },
+	  {
+		"z": 1074,
+		"id": "98ce4c17-c140-41bb-b18e-31dd0358b378",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveCircle",
+		"angle": 0,
+		"asset": "office01",
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "Government"
+		  },
+		  "title": {
+			"text": "Government"
+		  },
+		  ".inner": {
+			"fill": "#FF473A"
+		  },
+		  ".outer": {
+			"fill": "#FF473A",
+			"magnet": true
+		  }
+		},
+		"elemID": "960938c9-bae6-4c37-a26d-dc37d1c06949",
+		"data_id": 4793,
+		"celltype": "actor",
+		"position": {
+		  "x": 1372,
+		  "y": 147
+		}
+	  },
+	  {
+		"z": 1075,
+		"id": "fad2cc20-2da3-4002-b803-92326daa46b4",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveRect",
+		"angle": 0,
+		"asset": "office01",
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "Smart City\nPlatform"
+		  },
+		  "title": {
+			"text": "Smart City Platform"
+		  },
+		  ".inner": {
+			"fill": "#3f51b5"
+		  },
+		  ".outer": {
+			"fill": "#3f51b5",
+			"magnet": true
+		  }
+		},
+		"elemID": "7af4420f-9101-4bb9-a236-cacb90abde92",
+		"data_id": 4794,
+		"celltype": "actor",
+		"position": {
+		  "x": 808,
+		  "y": 321
+		}
+	  },
+	  {
+		"z": 1076,
+		"id": "f50d335d-b4ce-4d25-bbef-6dbf4e79020e",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveDiamond",
+		"angle": 0,
+		"asset": "office01",
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "Citizen"
+		  },
+		  "title": {
+			"text": "Citizen"
+		  },
+		  ".inner": {
+			"fill": "#9c27b0"
+		  },
+		  ".outer": {
+			"fill": "#9c27b0",
+			"magnet": true
+		  }
+		},
+		"elemID": "90daf755-ae71-43e2-a323-56265f7b6440",
+		"data_id": 4796,
+		"celltype": "actor",
+		"position": {
+		  "x": 1060,
+		  "y": 598
+		}
+	  },
+	  {
+		"z": 1077,
+		"id": "6580ac64-937d-49e5-8093-43cda8bda243",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveHex",
+		"angle": 0,
+		"asset": "office01",
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "Transport\nDept"
+		  },
+		  "title": {
+			"text": "Transport Dept"
+		  },
+		  ".inner": {
+			"fill": "#607D8b"
+		  },
+		  ".outer": {
+			"fill": "#607D8b",
+			"magnet": true
+		  }
+		},
+		"elemID": "7fda29b7-ff13-4a49-b554-a8cb8e89be46",
+		"data_id": 4797,
+		"celltype": "actor",
+		"position": {
+		  "x": 344,
+		  "y": 309
+		}
+	  },
+	  {
+		"z": 1078,
+		"id": "166f51a0-5514-4f4c-bb7d-e729330d86d7",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveHex",
+		"angle": 0,
+		"asset": "office01",
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "Lighting\nDept"
+		  },
+		  "title": {
+			"text": "Lighting Dept"
+		  },
+		  ".inner": {
+			"fill": "#607d8b"
+		  },
+		  ".outer": {
+			"fill": "#607d8b",
+			"magnet": true
+		  }
+		},
+		"elemID": "43133894-9415-4fb7-8cc4-163e7c0b71d6",
+		"data_id": 4798,
+		"celltype": "actor",
+		"position": {
+		  "x": 381,
+		  "y": 397
+		}
+	  },
+	  {
+		"z": 1079,
+		"id": "e277a7c0-c61a-4a91-b45d-18b5e018572a",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveHex",
+		"angle": 0,
+		"asset": "office01",
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "Public\nSafety Dept"
+		  },
+		  "title": {
+			"text": "Public Safety Dept"
+		  },
+		  ".inner": {
+			"fill": "#607D8b"
+		  },
+		  ".outer": {
+			"fill": "#607D8b",
+			"magnet": true
+		  }
+		},
+		"elemID": "1e86def2-78aa-41e5-be8c-830fc1b3a4d4",
+		"data_id": 4799,
+		"celltype": "actor",
+		"position": {
+		  "x": 418,
+		  "y": 478
+		}
+	  },
+	  {
+		"z": 1080,
+		"id": "19ae2671-2696-40aa-a323-09dfc7bd52ec",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveHex",
+		"angle": 0,
+		"asset": "office01",
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "Waste Dept"
+		  },
+		  "title": {
+			"text": "Waste Dept"
+		  },
+		  ".inner": {
+			"fill": "#607D8b"
+		  },
+		  ".outer": {
+			"fill": "#607D8b",
+			"magnet": true
+		  }
+		},
+		"elemID": "39c77727-b6d1-43d8-9cb0-1992d5618565",
+		"data_id": 4800,
+		"celltype": "actor",
+		"position": {
+		  "x": 460,
+		  "y": 584
+		}
+	  },
+	  {
+		"z": 1081,
+		"id": "4aed22ae-f381-4a68-a6f7-17e665e12c3e",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveHex",
+		"angle": 0,
+		"asset": "office01",
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "Education\nDept"
+		  },
+		  "title": {
+			"text": "Education Dept"
+		  },
+		  ".inner": {
+			"fill": "#607d8b"
+		  },
+		  ".outer": {
+			"fill": "#607d8b",
+			"magnet": true
+		  }
+		},
+		"elemID": "fe76a4bb-d5d4-4ee2-82d7-4f1d77ef6cca",
+		"data_id": 4801,
+		"celltype": "actor",
+		"position": {
+		  "x": 604,
+		  "y": 614
+		}
+	  },
+	  {
+		"z": 1082,
+		"id": "c5c9e5a3-f182-4747-ab2d-da4139154f1e",
+		"size": {
+		  "width": 80,
+		  "height": 80
+		},
+		"type": "basic.InteractiveHex",
+		"angle": 0,
+		"attrs": {
+		  "text": {
+			"fill": "white",
+			"text": "Traffic Mgmt\nDept"
+		  },
+		  "title": {
+			"text": "Traffic Mgmt Dept"
+		  },
+		  ".inner": {
+			"fill": "#607d8b"
+		  },
+		  ".outer": {
+			"fill": "#607d8b",
+			"magnet": true
+		  }
+		},
+		"data_id": 4805,
+		"celltype": "actor",
+		"position": {
+		  "x": 814,
+		  "y": 638
+		}
+	  },
+	  {
+		"z": 1082,
+		"id": "8796f55e-f758-45a5-afd5-0dd47eff9e99",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#FC952A",
+			"stroke-width": 3,
+			"data-category": "Data"
+		  },
+		  "data-category": {
+			"0": "D",
+			"1": "a",
+			"2": "t",
+			"3": "a"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#FC952A",
+			"stroke": "#FC952A"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Data Feeds"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "79899b2f-583f-4b10-a973-eda8a62e541d",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4"
+		},
+		"data_id": 8105,
+		"celltype": "relationship",
+		"allowExtend": false
+	  },
+	  {
+		"z": 1083,
+		"id": "9177d6e4-475b-4ae4-9606-a5f1e6be9efd",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#0028F6",
+			"stroke-width": 3,
+			"data-category": "Contractual"
+		  },
+		  "data-category": {
+			"0": "C",
+			"1": "o",
+			"2": "n",
+			"3": "t",
+			"4": "r",
+			"5": "a",
+			"6": "c",
+			"7": "t",
+			"8": "u",
+			"9": "a",
+			"10": "l"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#0028F6",
+			"stroke": "#0028F6"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "new products"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "610ca9d9-6cf7-43f0-9e50-94cf5af5926a",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "22944309-2582-477e-a33e-340a61bc984c"
+		},
+		"data_id": 8106,
+		"celltype": "relationship",
+		"vertices": [
+		  {
+			"x": 621,
+			"y": 109
+		  }
+		],
+		"allowExtend": false
+	  },
+	  {
+		"z": 1084,
+		"id": "495503a7-76a5-4940-b6e4-18bd8d236cf4",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#8BED8E",
+			"stroke-width": 3,
+			"data-category": "Financial"
+		  },
+		  "data-category": {
+			"0": "F",
+			"1": "i",
+			"2": "n",
+			"3": "a",
+			"4": "n",
+			"5": "c",
+			"6": "i",
+			"7": "a",
+			"8": "l"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#8BED8E",
+			"stroke": "#8BED8E"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": ""
+			  }
+			},
+			"position": 0.6
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "610ca9d9-6cf7-43f0-9e50-94cf5af5926a",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "22944309-2582-477e-a33e-340a61bc984c",
+		  "port": null
+		},
+		"data_id": 8107,
+		"celltype": "relationship",
+		"vertices": [
+		  {
+			"x": 623.82478814021,
+			"y": 69.099867519482
+		  }
+		],
+		"allowExtend": false
+	  },
+	  {
+		"z": 1085,
+		"id": "c70cb57e-0a13-4d31-b40e-520a6e0e1f87",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#E48773",
+			"stroke-width": 3,
+			"data-category": "Operational"
+		  },
+		  "data-category": {
+			"0": "O",
+			"1": "p",
+			"2": "e",
+			"3": "r",
+			"4": "a",
+			"5": "t",
+			"6": "i",
+			"7": "o",
+			"8": "n",
+			"9": "a",
+			"10": "l"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#E48773",
+			"stroke": "#E48773"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "New offerings"
+			  }
+			},
+			"position": 0.6
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "98ce4c17-c140-41bb-b18e-31dd0358b378",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "84890e50-a473-45f4-810b-8aea65d32383",
+		  "port": null
+		},
+		"data_id": 8109,
+		"celltype": "relationship",
+		"vertices": [
+		  {
+			"x": 1280.0867069787,
+			"y": 233.94553359244
+		  }
+		],
+		"allowExtend": false
+	  },
+	  {
+		"z": 1087,
+		"id": "160f7190-3317-450e-b54e-86570d7e67e3",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#8869D2",
+			"stroke-width": 3,
+			"data-category": "Product\/Service"
+		  },
+		  "data-category": {
+			"0": "P",
+			"1": "r",
+			"2": "o",
+			"3": "d",
+			"4": "u",
+			"5": "c",
+			"6": "t",
+			"7": "\/",
+			"8": "S",
+			"9": "e",
+			"10": "r",
+			"11": "v",
+			"12": "i",
+			"13": "c",
+			"14": "e"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#8869D2",
+			"stroke": "#8869D2"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Ad serving"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "3b09b69a-1551-4136-bf1e-043603591889",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "f50d335d-b4ce-4d25-bbef-6dbf4e79020e"
+		},
+		"data_id": 8110,
+		"celltype": "relationship",
+		"allowExtend": false
+	  },
+	  {
+		"z": 1088,
+		"id": "251e8058-3071-4f46-8231-461701d87104",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#8BED8E",
+			"stroke-width": 3,
+			"data-category": "Financial"
+		  },
+		  "data-category": {
+			"0": "F",
+			"1": "i",
+			"2": "n",
+			"3": "a",
+			"4": "n",
+			"5": "c",
+			"6": "i",
+			"7": "a",
+			"8": "l"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#8BED8E",
+			"stroke": "#8BED8E"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Ad revenue"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "3b09b69a-1551-4136-bf1e-043603591889",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "b8f26522-b11e-46e0-beca-db0a7bd0e06d"
+		},
+		"data_id": 8111,
+		"celltype": "relationship",
+		"allowExtend": false
+	  },
+	  {
+		"z": 1089,
+		"id": "b220d973-3313-4e21-98f1-0ba17c90dfc5",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#FC952A",
+			"stroke-width": 3,
+			"data-category": "Data"
+		  },
+		  "data-category": {
+			"0": "D",
+			"1": "a",
+			"2": "t",
+			"3": "a"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#FC952A",
+			"stroke": "#FC952A"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Usage Data"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "c5c9e5a3-f182-4747-ab2d-da4139154f1e",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > path:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4"
+		},
+		"data_id": 8112,
+		"celltype": "relationship",
+		"allowExtend": false
+	  },
+	  {
+		"z": 1093,
+		"id": "ae52e6da-08e3-4b53-9dcc-14e55a0865af",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#FC952A",
+			"stroke-width": 3,
+			"data-category": "Data"
+		  },
+		  "data-category": {
+			"0": "D",
+			"1": "a",
+			"2": "t",
+			"3": "a"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#FC952A",
+			"stroke": "#FC952A"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "Contract"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "e73f1d89-0a80-4ab4-885d-98d67085a9f1",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4"
+		},
+		"data_id": 8338,
+		"celltype": "relationship",
+		"allowExtend": false
+	  },
+	  {
+		"z": 1096,
+		"id": "6f41a94e-a4c2-4693-a1db-4e361507045e",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#8BED8E",
+			"stroke-width": 3,
+			"data-category": "Financial"
+		  },
+		  "data-category": {
+			"0": "F",
+			"1": "i",
+			"2": "n",
+			"3": "a",
+			"4": "n",
+			"5": "c",
+			"6": "i",
+			"7": "a",
+			"8": "l"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#8BED8E",
+			"stroke": "#8BED8E"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": "fin"
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "c7ba08d6-b464-4b03-9485-032df74d52ea",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4"
+		},
+		"data_id": 8873,
+		"celltype": "relationship",
+		"vertices": [
+		  {
+			"x": 750,
+			"y": 268
+		  }
+		],
+		"allowExtend": false
+	  },
+	  {
+		"z": 1097,
+		"id": "03c64874-b055-4521-924f-bd8cb2a42a77",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#FC952A",
+			"stroke-width": 3,
+			"data-category": "Data"
+		  },
+		  "data-category": {
+			"0": "D",
+			"1": "a",
+			"2": "t",
+			"3": "a"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#FC952A",
+			"stroke": "#FC952A"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": ""
+			  }
+			},
+			"position": 0.6
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "c7ba08d6-b464-4b03-9485-032df74d52ea",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4",
+		  "port": null
+		},
+		"data_id": 8874,
+		"celltype": "relationship",
+		"vertices": [
+		  {
+			"x": 777.53441240996,
+			"y": 238.98524283682
+		  }
+		],
+		"allowExtend": false
+	  },
+	  {
+		"z": 1098,
+		"id": "c02aae9d-de0b-429f-9c52-d58fa670c2ae",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#FC952A",
+			"stroke-width": 3,
+			"data-category": "Data"
+		  },
+		  "data-category": {
+			"0": "D",
+			"1": "a",
+			"2": "t",
+			"3": "a"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#FC952A",
+			"stroke": "#FC952A"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": ""
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "d663932b-eb23-411f-a9b2-947043581f97",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4"
+		},
+		"data_id": 8898,
+		"celltype": "relationship",
+		"allowExtend": false
+	  },
+	  {
+		"z": 1099,
+		"id": "c50e2f78-53ff-4509-977a-197530e991f9",
+		"type": "link",
+		"attrs": {
+		  ".connection": {
+			"stroke": "#FC952A",
+			"stroke-width": 3,
+			"data-category": "Data"
+		  },
+		  "data-category": {
+			"0": "D",
+			"1": "a",
+			"2": "t",
+			"3": "a"
+		  },
+		  ".marker-target": {
+			"d": "M 10 0 L 0 5 L 10 10 z",
+			"fill": "#FC952A",
+			"stroke": "#FC952A"
+		  },
+		  ".marker-vertices": {
+			"display": "none"
+		  }
+		},
+		"embeds": "",
+		"labels": [
+		  {
+			"attrs": {
+			  "text": {
+				"text": ""
+			  }
+			},
+			"position": 0.5
+		  }
+		],
+		"smooth": true,
+		"source": {
+		  "id": "e9a1345a-3cc1-46f2-bfc3-a96d730e0c9e",
+		  "port": null,
+		  "selector": "g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+		},
+		"target": {
+		  "id": "fad2cc20-2da3-4002-b803-92326daa46b4"
+		},
+		"data_id": 9108,
+		"celltype": "relationship",
+		"allowExtend": false
+	  }
+	]
+}
