@@ -89,7 +89,7 @@ public class RelationshipManager{
     }
 
     //draw arched relation
-    //\mathbf {B} (t)=(1-t)^{2}\mathbf {P} _{0}+2(1-t)t\mathbf {P} _{1}+t^{2}\mathbf {P} _{2}{\mbox{ , }}0\leq t\leq 1. //taken straight from might Wikipedia
+    //\mathbf {B} (t)=(1-t)^{2}\mathbf {P} _{0}+2(1-t)t\mathbf {P} _{1}+t^{2}\mathbf {P} _{2}{\mbox{ , }}0\leq t\leq 1. //taken from Wikipedia
     private Vector3 drawCurvedRelation(float t, Vector3 p0, Vector3 p1, Vector3 midPoint)
     {
         Vector3 temp = new Vector3();

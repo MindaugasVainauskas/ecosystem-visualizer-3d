@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using UnityEngine.VR.WSA.WebCam;
 using ZXing;
 using ZXing.Client.Result;
 
@@ -15,26 +17,39 @@ public class QR_TokenParser : MonoBehaviour {
     private string jsonRequestData;
 
     // Use this for initialization
-    void Awake ()
+    void Awake()
     {
+        Resolution cameraResolution = VideoCapture.SupportedResolutions.OrderByDescending((res) => res.width * res.height).First();
         Debug.Log("Awoke in QR Reader Scene==!");
         //set decoded string to null
         decodedString = null;
         jsonRequestData = null;
         //instantiate new GraphAccessToken class
         token = new GraphAccessToken();
-        screenRect = new Rect(0, 0, Screen.width, Screen.height);
         camTexture = new WebCamTexture();
+#if UNITY_EDITOR
+        screenRect = new Rect(0, 0, Screen.width, Screen.height);
         camTexture.requestedHeight = Screen.height;
         camTexture.requestedWidth = Screen.width;
+#endif
+#if !UNITY_EDITOR
+        screenRect = new Rect(0, 0, camTexture.width, camTexture.height);
+#endif
 
         //Start up camera feed if texture is not null.
         if (camTexture != null)
         {
+
+
+
             
-            camTexture.Play();
-            Debug.Log("Started video feed==!");
         }
+    }
+
+    void Start()
+    {
+        camTexture.Play();
+        Debug.Log("Started video feed==! "+camTexture.deviceName);
     }
 
     void OnGUI()
