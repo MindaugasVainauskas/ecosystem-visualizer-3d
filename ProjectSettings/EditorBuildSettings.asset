@@ -9,5 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: 4e788411055c7984a98fb9d081991eb1
   - enabled: 1
+    path: Assets/Scenes/QR_Reader_Scene.unity
+    guid: 329e7c0684649284386fcad2d06e8f49
+  - enabled: 1
     path: Assets/Scenes/VisualiserScene.unity
-    guid: 00000000000000000000000000000000
+    guid: b2bec3aa8fc98d848bcb3be17592b396
